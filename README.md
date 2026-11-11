@@ -9,6 +9,10 @@ Website demo marketplace NTTU, xây bằng React, TypeScript và Vite. Không c�
 3. Chạy `npm install` rồi `npm run dev`.
 4. Mở địa chỉ local do Vite hiển thị (thường là `http://localhost:5173`).
 
+## Xuất bản website
+
+Kho này được cấu hình để xuất bản qua GitHub Pages tại `https://truongminh09718.github.io/NgocThi/`. Trong GitHub, đặt **Settings → Pages → Build and deployment → Source** thành **GitHub Actions**. Mỗi lần cập nhật nhánh `main`, quy trình sẽ dựng và xuất bản lại website.
+
 ## Các thao tác có thể thử
 
 - Tìm sản phẩm theo từ khóa, lọc danh mục và mở trang chi tiết.
