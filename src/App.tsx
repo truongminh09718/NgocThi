@@ -48,10 +48,14 @@ import {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <SiteLayout />
     </BrowserRouter>
   )
+}
+
+function publicAsset(path: string) {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
 }
 
 function SiteLayout() {
@@ -213,7 +217,7 @@ function HomePage() {
           </div>
           <div className="hero-product" data-visual>
             <div className="hero-image-wrap">
-              <img src={heroListing?.image ?? '/images/listing-placeholder.svg'} alt={heroListing?.imageAlt ?? 'Ảnh minh họa sản phẩm sẽ đăng'} />
+              <img src={heroListing?.image ?? publicAsset('images/listing-placeholder.svg')} alt={heroListing?.imageAlt ?? 'Ảnh minh họa sản phẩm sẽ đăng'} />
             </div>
             {heroListing && <div className="hero-product-card">
               <div>
@@ -268,7 +272,7 @@ function HomePage() {
       <section ref={momentRef} className="moment-section mo-la" aria-labelledby="moment-title" data-moment="letters-assemble" data-moment-opts='{"spread":0.75}'>
         <div className="wrap grid">
           <div className="moment-copy span-5"><h2 className="mo-la__type" id="moment-title">Sách dùng tiếp.</h2><p className="mo-la__sub">Giáo trình còn tốt có thể tiếp tục giúp một bạn khác trong lớp.</p><Link className="button button-primary moment-action" to="/#san-pham">Tìm sản phẩm <ArrowRight size={16} /></Link></div>
-          <figure className="moment-image span-6 start-7"><img src={items[3]?.image ?? '/images/listing-placeholder.svg'} alt={items[3]?.imageAlt ?? 'Sách và đồ dùng học tập'} loading="lazy" /></figure>
+          <figure className="moment-image span-6 start-7"><img src={items[3]?.image ?? publicAsset('images/listing-placeholder.svg')} alt={items[3]?.imageAlt ?? 'Sách và đồ dùng học tập'} loading="lazy" /></figure>
         </div>
       </section>
     </>
@@ -376,7 +380,7 @@ function SellPage() {
     setBusy(true)
     setNotice('')
     try {
-      const image = file ? await compressDemoImage(file) : '/images/listing-placeholder.svg'
+      const image = file ? await compressDemoImage(file) : publicAsset('images/listing-placeholder.svg')
       const title = String(formData.get('title') ?? '').trim()
       const condition = String(formData.get('condition') ?? '')
       const item = addDemoListing({
