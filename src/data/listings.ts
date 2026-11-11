@@ -8,6 +8,7 @@ export type Listing = {
   location: string
   sellerKind: 'Sinh viên' | 'Cửa hàng'
   sellerName?: string
+  sellerEmail?: string
   sellerEmailVerified?: boolean
   description: string
   descriptionLong: string

@@ -150,6 +150,7 @@ h1, h2, h3, p { margin-top: 0; }
 .product-title { display: block; margin: 8px 0 5px; color: var(--ink); font: 500 18px/1.28 var(--font-display); letter-spacing: -.025em; transition: color 150ms var(--ease); }
 .product-title:hover { color: var(--p-action); }
 .product-description { min-height: 44px; margin: 0; color: #405168; font-size: 14px; line-height: 1.5; }
+.product-save-notice { display: block; margin-top: 5px; color: #a34242; font-size: 11px; line-height: 1.35; }
 .product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 15px; padding-top: 12px; border-top: 1px solid #edf0f4; }
 .product-bottom > strong { color: #1c2d47; font-size: 16px; font-weight: 650; }
 .seller-tag { display: inline-flex; align-items: center; gap: 4px; color: #46566d; font-size: 13px; }

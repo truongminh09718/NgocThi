@@ -281,6 +281,7 @@ function HomePage() {
 
 function ProductCard({ item, index }: { item: Listing; index: number }) {
   const demoStore = useDemoStore()
+  const [notice, setNotice] = useState('')
   const saved = demoStore.favorites.includes(item.id)
   const sold = demoStore.soldIds.includes(item.id)
   return (
@@ -288,13 +289,14 @@ function ProductCard({ item, index }: { item: Listing; index: number }) {
       <Link className="product-image m-zoom" to={`/san-pham/${item.id}`} aria-label={`Xem ${item.title}`}>
         <img src={item.image} alt={item.imageAlt} loading="lazy" />
       </Link>
-      <button className={`save-button ${saved ? 'is-saved' : ''}`} type="button" aria-label={saved ? 'Bỏ lưu tin' : 'Lưu tin'} aria-pressed={saved} onClick={() => toggleDemoFavorite(item.id)}>
+      <button className={`save-button ${saved ? 'is-saved' : ''}`} type="button" aria-label={saved ? 'Bỏ lưu tin' : 'Lưu tin'} aria-pressed={saved} onClick={() => setNotice(toggleDemoFavorite(item.id) === null ? 'Không lưu được thay đổi. Hãy kiểm tra dung lượng trình duyệt.' : '')}>
         <Heart size={18} fill={saved ? 'currentColor' : 'none'} />
       </button>
       <div className="product-info">
         <div className="product-meta"><span>{item.category}</span><span className="product-condition-text">{sold ? 'Đã bán' : item.conditionShort}</span><span className="product-location"><MapPin size={12} /> {item.location}</span></div>
         <Link className="product-title" to={`/san-pham/${item.id}`}>{item.title}</Link>
         <p className="product-description">{item.description}</p>
+        {notice && <span className="product-save-notice" role="status">{notice}</span>}
         <div className="product-bottom"><strong>{formatPrice(item.price)}</strong><span className={`seller-tag ${item.sellerKind === 'Cửa hàng' ? 'seller-tag-store' : ''}`}>{item.sellerKind === 'Cửa hàng' ? <Store size={13} /> : <BadgeCheck size={13} />}{item.sellerKind}</span></div>
       </div>
     </article>
@@ -304,10 +306,12 @@ function ProductCard({ item, index }: { item: Listing; index: number }) {
 function ProductPage() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const [actionNotice, setActionNotice] = useState('')
   const { items, loading, error } = useListings()
   const item = items.find((listing) => listing.id === id)
   const demoStore = useDemoStore()
   const saved = Boolean(item && demoStore.favorites.includes(item.id))
+  const isOwner = Boolean(item?.sellerEmail && item.sellerEmail === demoStore.currentUserEmail)
   if (loading) return <EmptyPage title="Đang tải sản phẩm" body="Vui lòng đợi trong giây lát." />
   if (error) return <EmptyPage title="Chưa tải được sản phẩm" body={error} />
   if (!item) return <EmptyPage title="Không tìm thấy sản phẩm" body="Tin đăng có thể đã được gỡ hoặc không còn khả dụng." />
@@ -329,11 +333,17 @@ function ProductPage() {
             {item.sellerEmailVerified && <span className="verified-label"><BadgeCheck size={15} /> Email NTTU đã xác minh</span>}
           </div>
           <div className="detail-actions">
-            <button className="button button-primary" type="button" disabled={isDemoListingSold(item.id)} onClick={() => { const threadId = startDemoConversation(item); navigate(`/tin-nhan?thread=${encodeURIComponent(threadId)}`) }}><MessageCircle size={17} /> {isDemoListingSold(item.id) ? 'Tin đã bán' : 'Nhắn người bán'}</button>
-            <button className={`button button-secondary ${saved ? 'is-saved' : ''}`} type="button" onClick={() => toggleDemoFavorite(item.id)}><Heart size={17} fill={saved ? 'currentColor' : 'none'} /> {saved ? 'Đã lưu tin' : 'Lưu tin'}</button>
+            <button className="button button-primary" type="button" disabled={isDemoListingSold(item.id) || isOwner} onClick={() => {
+              if (!demoStore.currentUserEmail) { navigate(`/dang-nhap?redirect=${encodeURIComponent(`/san-pham/${item.id}`)}`); return }
+              const threadId = startDemoConversation(item)
+              if (threadId) navigate(`/tin-nhan?thread=${encodeURIComponent(threadId)}`)
+              else setActionNotice('Thiết bị không còn đủ dung lượng để lưu cuộc trò chuyện.')
+            }}><MessageCircle size={17} /> {isOwner ? 'Tin của bạn' : isDemoListingSold(item.id) ? 'Tin đã bán' : 'Nhắn người bán'}</button>
+            <button className={`button button-secondary ${saved ? 'is-saved' : ''}`} type="button" onClick={() => setActionNotice(toggleDemoFavorite(item.id) === null ? 'Không lưu được thay đổi. Hãy kiểm tra dung lượng trình duyệt.' : '')}><Heart size={17} fill={saved ? 'currentColor' : 'none'} /> {saved ? 'Đã lưu tin' : 'Lưu tin'}</button>
           </div>
-          {item.id.startsWith('demo-') && !isDemoListingSold(item.id) && <button className="demo-sold-button" type="button" onClick={() => markDemoListingSold(item.id)}>Đánh dấu tin đã bán</button>}
-          {item.id.startsWith('demo-') && isDemoListingSold(item.id) && <div className="demo-rating"><strong>Đánh giá người bán</strong><div role="group" aria-label="Chọn số sao đánh giá">{[1, 2, 3, 4, 5].map((star) => <button key={star} className={star <= (demoStore.ratings[item.id] ?? 0) ? 'is-rated' : ''} type="button" aria-label={`${star} sao`} aria-pressed={star === demoStore.ratings[item.id]} onClick={() => rateDemoTransaction(item.id, star)}>★</button>)}</div>{demoStore.ratings[item.id] ? <span>Đã chọn {demoStore.ratings[item.id]} sao. Đánh giá lưu trên thiết bị này.</span> : <span>Đánh giá chỉ lưu trên thiết bị này.</span>}</div>}
+          {actionNotice && <div className="form-notice" role="status"><ShieldCheck size={18} /> {actionNotice}</div>}
+          {isOwner && !isDemoListingSold(item.id) && <button className="demo-sold-button" type="button" onClick={() => { if (!markDemoListingSold(item.id)) setActionNotice('Không lưu được trạng thái tin. Hãy kiểm tra dung lượng trình duyệt.') }}>Đánh dấu tin đã bán</button>}
+          {isOwner && isDemoListingSold(item.id) && <div className="demo-rating"><strong>Đánh giá giao dịch</strong><div role="group" aria-label="Chọn số sao đánh giá">{[1, 2, 3, 4, 5].map((star) => <button key={star} className={star <= (demoStore.ratings[item.id] ?? 0) ? 'is-rated' : ''} type="button" aria-label={`${star} sao`} aria-pressed={star === demoStore.ratings[item.id]} onClick={() => { if (!rateDemoTransaction(item.id, star)) setActionNotice('Không lưu được đánh giá. Hãy kiểm tra dung lượng trình duyệt.') }}>★</button>)}</div>{demoStore.ratings[item.id] ? <span>Đã chọn {demoStore.ratings[item.id]} sao. Đánh giá lưu trên thiết bị này.</span> : <span>Đánh giá chỉ lưu trên thiết bị này.</span>}</div>}
           <p className="detail-safety"><ShieldCheck size={17} /> Hẹn gặp nơi công cộng trong trường và kiểm tra sản phẩm trước khi thanh toán.</p>
         </div>
       </div>
@@ -406,6 +416,14 @@ function SellPage() {
       setBusy(false)
     }
   }
+  if (!demoStore.currentUserEmail) return (
+    <section className="empty-page wrap hero" data-enter>
+      <div className="empty-icon"><BookOpenCheck size={25} /></div>
+      <h1>Đăng nhập để đăng bán.</h1>
+      <p>Tạo tài khoản hoặc đăng nhập để tin đăng được gắn với tài khoản trên thiết bị này.</p>
+      <Link className="button button-primary" to="/dang-nhap?mode=register&redirect=%2Fdang-ban">Đăng ký / Đăng nhập <ArrowRight size={16} /></Link>
+    </section>
+  )
   return (
     <section className="content-page wrap sell-page hero" data-enter>
       <div className="page-intro"><p className="eyebrow">Đăng bán</p><h1>Đưa món đồ học tập lên chợ.</h1><p>Tin chỉ được lưu trong trình duyệt này; chưa hiển thị cho người dùng khác.</p></div>
@@ -447,6 +465,7 @@ function ShopPage() {
 function MessagesPage() {
   const demoStore = useDemoStore()
   const [params, setParams] = useSearchParams()
+  const [notice, setNotice] = useState('')
   const requestedId = params.get('thread')
   const selectedId = demoStore.conversations.some((thread) => thread.id === requestedId)
     ? requestedId ?? ''
@@ -460,14 +479,23 @@ function MessagesPage() {
     const data = new FormData(form)
     const text = String(data.get('message') ?? '').trim()
     if (!text) return
-    sendDemoMessage(selected.id, text)
+    if (!sendDemoMessage(selected.id, text)) {
+      setNotice('Không lưu được tin nhắn. Hãy kiểm tra dung lượng trình duyệt rồi thử lại.')
+      return
+    }
+    setNotice('')
     form.reset()
-    window.setTimeout(() => replyDemoMessage(selected.id, 'Đây là phản hồi tự động. Người bán chưa nhận được tin nhắn này.'), 650)
+    window.setTimeout(() => {
+      if (!replyDemoMessage(selected.id, 'Đây là phản hồi tự động. Người bán chưa nhận được tin nhắn này.')) {
+        setNotice('Tin nhắn của bạn đã lưu, nhưng không lưu được phản hồi tự động.')
+      }
+    }, 650)
   }
 
   return (
     <section className="content-page wrap messages-page hero" data-enter>
       <div className="page-intro"><p className="eyebrow">Tin nhắn</p><h1>Trao đổi về sản phẩm.</h1><p>Tin nhắn lưu trong trình duyệt này; người bán chưa nhận được nội dung bạn gửi.</p></div>
+      {notice && <div className="form-notice" role="status"><ShieldCheck size={18} /> {notice}</div>}
       {demoStore.conversations.length ? <div className="demo-chat-layout">
         <aside className="demo-thread-list" aria-label="Các cuộc trao đổi">{demoStore.conversations.map((thread) => <button key={thread.id} type="button" className={`demo-thread ${thread.id === selectedId ? 'is-selected' : ''}`} onClick={() => setParams({ thread: thread.id })}><strong>{thread.title}</strong><span>{thread.sellerName}</span><small>{thread.messages.at(-1)?.text}</small></button>)}</aside>
         {selected && <div className="demo-chat"><div className="demo-chat-heading"><div><strong>{selected.sellerName}</strong><span>{selected.title} · {formatPrice(selected.price)}</span></div><Link to={`/san-pham/${selected.listingId}`}>Xem tin</Link></div>
@@ -481,7 +509,10 @@ function MessagesPage() {
 
 function LoginPage() {
   const demoStore = useDemoStore()
-  const [mode, setMode] = useState<'login' | 'register'>('login')
+  const [params] = useSearchParams()
+  const redirectTo = params.get('redirect')
+  const destination = redirectTo?.startsWith('/') && !redirectTo.startsWith('//') ? redirectTo : '/'
+  const [mode, setMode] = useState<'login' | 'register'>(params.get('mode') === 'register' ? 'register' : 'login')
   const [name, setName] = useState(demoStore.demoName)
   const [email, setEmail] = useState(demoStore.currentUserEmail)
   const [password, setPassword] = useState('')
@@ -498,7 +529,7 @@ function LoginPage() {
         ? await registerDemoAccount(email, name, password)
         : await loginDemoAccount(email, password)
       if (!result.ok) { setNotice(result.error); return }
-      navigate('/')
+      navigate(destination)
     } catch {
       setNotice('Trình duyệt chưa hỗ trợ tạo tài khoản. Hãy cập nhật trình duyệt rồi thử lại.')
     } finally {
