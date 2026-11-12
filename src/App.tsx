@@ -67,6 +67,8 @@ function publicAsset(path: string) {
 }
 
 function SiteLayout() {
+  const location = useLocation()
+  const isLoginPage = location.pathname === '/dang-nhap'
   return (
     <div className="site-shell">
       <div className="preview-banner">
@@ -88,7 +90,7 @@ function SiteLayout() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
-      <Footer />
+      {!isLoginPage && <Footer />}
     </div>
   )
 }
