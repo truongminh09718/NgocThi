@@ -81,6 +81,7 @@ function SiteLayout() {
           <Route path="/" element={<HomePage />} />
           <Route path="/san-pham/:id" element={<ProductPage />} />
           <Route path="/tin-da-luu" element={<SavedPage />} />
+          <Route path="/tai-khoan" element={<AccountPage />} />
           <Route path="/dang-ban" element={<SellPage />} />
           <Route path="/cua-hang" element={<ShopPage />} />
           <Route path="/tin-nhan" element={<MessagesPage />} />
@@ -140,7 +141,7 @@ function Header() {
             <MessageCircle size={19} />
             <span>Tin nhắn</span>
           </Link>
-            {demoStore.currentUserEmail ? <button className="text-link sign-in-link" type="button" onClick={clearDemoAccount}>Đăng xuất</button> : <Link className="text-link sign-in-link" to="/dang-nhap">Đăng nhập</Link>}
+            {demoStore.currentUserEmail ? <Link className="text-link sign-in-link" to="/tai-khoan">Tài khoản của tôi</Link> : <Link className="text-link sign-in-link" to="/dang-nhap">Đăng nhập</Link>}
           <Link className="button button-primary header-sell" to="/dang-ban">
             <span>Đăng bán</span><ArrowRight size={16} />
           </Link>
@@ -165,7 +166,7 @@ function Header() {
           <div className="campus-label"><MapPin size={15} /> Cộng đồng NTTU</div>
           <div className="mobile-nav-actions">
             <Link to="/tin-nhan" onClick={() => setMenuOpen(false)}><MessageCircle size={17} /> Tin nhắn</Link>
-            {demoStore.currentUserEmail ? <button className="text-link" type="button" onClick={() => { clearDemoAccount(); setMenuOpen(false) }}>Đăng xuất</button> : <Link to="/dang-nhap" onClick={() => setMenuOpen(false)}>Đăng nhập / Đăng ký</Link>}
+            {demoStore.currentUserEmail ? <Link to="/tai-khoan" onClick={() => setMenuOpen(false)}>Tài khoản của tôi</Link> : <Link to="/dang-nhap" onClick={() => setMenuOpen(false)}>Đăng nhập / Đăng ký</Link>}
             <Link className="button button-primary" to="/dang-ban" onClick={() => setMenuOpen(false)}>Đăng bán <ArrowRight size={16} /></Link>
           </div>
         </div>
@@ -467,6 +468,37 @@ function SavedPage() {
   </section>
 }
 
+function AccountPage() {
+  const store = useDemoStore()
+  const { items } = useListings()
+  const navigate = useNavigate()
+  if (!store.currentUserEmail) return <Navigate to={`/dang-nhap?redirect=${encodeURIComponent('/tai-khoan')}`} replace />
+
+  const myListings = items.filter((item) => item.sellerEmail === store.currentUserEmail)
+  const savedListings = items.filter((item) => store.favorites.includes(item.id))
+  const myPurchases = store.conversations.filter((thread) => thread.purchase?.buyerEmail === store.currentUserEmail)
+  const firstLetter = (store.demoName || store.currentUserEmail).trim().charAt(0).toLocaleUpperCase('vi')
+
+  return <section className="content-page wrap account-page hero" data-enter>
+    <div className="page-intro"><p className="eyebrow">Khu vực cá nhân</p><h1>Tài khoản của tôi.</h1><p>Thông tin và hoạt động của bạn trên StuMarket.</p></div>
+    <div className="account-profile">
+      <div className="account-avatar" aria-hidden="true">{firstLetter}</div>
+      <div className="account-identity"><strong>{store.demoName || 'Sinh viên NTTU'}</strong><span>{store.currentUserEmail}</span><small><ShieldCheck size={14} /> Tài khoản lưu trên thiết bị này</small></div>
+      <button className="button button-secondary account-logout" type="button" onClick={() => { clearDemoAccount(); navigate('/') }}>Đăng xuất</button>
+    </div>
+    <div className="account-stats">
+      <article><strong>{myListings.length}</strong><span>Tin đã đăng</span></article>
+      <article><strong>{savedListings.length}</strong><span>Tin đã lưu</span></article>
+      <article><strong>{myPurchases.length}</strong><span>Yêu cầu mua</span></article>
+    </div>
+    <div className="account-section-heading"><div><p className="eyebrow">Hoạt động bán</p><h2>Tin đăng của tôi</h2></div><Link className="text-link" to="/dang-ban">Đăng sản phẩm <ArrowRight size={15} /></Link></div>
+    {myListings.length ? <div className="product-grid grid">{myListings.map((item, index) => <ProductCard item={item} key={item.id} index={index} />)}</div> : <div className="account-empty"><BookOpen size={21} /><p>Bạn chưa đăng sản phẩm nào.</p><Link className="button button-secondary" to="/dang-ban">Đăng sản phẩm đầu tiên</Link></div>}
+    <div className="account-section-heading"><div><p className="eyebrow">Hoạt động mua</p><h2>Yêu cầu mua của tôi</h2></div><Link className="text-link" to="/tin-nhan">Tin nhắn <ArrowRight size={15} /></Link></div>
+    {myPurchases.length ? <div className="account-orders">{myPurchases.map((thread) => <article className="account-order" key={thread.id}><div><strong>{thread.title}</strong><span>{formatPrice(thread.price)} · {thread.sellerName}</span></div><span className={`account-order-status ${thread.purchase?.status === 'completed' ? 'is-complete' : ''}`}>{thread.purchase?.status === 'completed' ? 'Đã nhận hàng' : 'Chờ giao dịch'}</span><Link className="text-link" to={`/tin-nhan?thread=${encodeURIComponent(thread.id)}`}>Xem yêu cầu <ArrowRight size={15} /></Link></article>)}</div> : <div className="account-empty"><ShoppingBag size={21} /><p>Bạn chưa có yêu cầu mua nào.</p><Link className="button button-secondary" to="/#san-pham">Tìm sản phẩm</Link></div>}
+    <div className="account-shortcuts"><Link to="/tin-da-luu"><Heart size={17} /> Danh sách tin đã lưu <ArrowRight size={15} /></Link><Link to="/tin-nhan"><MessageCircle size={17} /> Các cuộc trao đổi <ArrowRight size={15} /></Link></div>
+  </section>
+}
+
 function SellPage() {
   const [notice, setNotice] = useState('')
   const [imagePreview, setImagePreview] = useState('')
@@ -701,7 +733,7 @@ function Footer() {
       <div className="footer-main grid">
         <div className="footer-brand span-5"><Brand /><p>Chợ trực tuyến cho giáo trình, học cụ và văn phòng phẩm dành cho cộng đồng NTTU.</p></div>
         <div className="footer-links span-3 start-7"><strong>StuMarket</strong><Link to="/">Chợ sinh viên</Link><Link to="/tin-da-luu">Tin đã lưu</Link><Link to="/cua-hang">Văn phòng phẩm</Link><Link to="/huong-dan">Cách hoạt động</Link></div>
-        <div className="footer-links span-3 start-10"><strong>Tài khoản</strong><Link to="/dang-nhap">Đăng nhập</Link><Link to="/dang-ban">Đăng bán</Link><Link to="/tin-nhan">Tin nhắn</Link></div>
+        <div className="footer-links span-3 start-10"><strong>Tài khoản</strong><Link to="/dang-nhap">Đăng nhập / Đăng ký</Link><Link to="/tai-khoan">Tài khoản của tôi</Link><Link to="/dang-ban">Đăng bán</Link><Link to="/tin-nhan">Tin nhắn</Link></div>
       </div>
       <div className="footer-bottom"><span>© 2026 StuMarket NTTU</span><span>Dữ liệu chỉ lưu trong trình duyệt này.</span></div>
       </div>
