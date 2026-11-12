@@ -47,7 +47,12 @@ import {
   toggleDemoFavorite,
   useDemoStore,
 } from './lib/demo-store'
+import { createVnpaySandboxPayment, getVnpayPaymentStatus, isVnpayConfigured } from './lib/vnpay'
 
+const vnpaySandboxListingIds = new Set([
+  'giao-trinh-marketing', 'may-tinh-casio', 'vo-so-tay',
+  'giao-trinh-toan-cao-cap', 'nguyen-ly-ke-toan', 'dung-cu-ve-ky-thuat',
+])
 
 function App() {
   return (
@@ -77,6 +82,7 @@ function SiteLayout() {
           <Route path="/dang-ban" element={<SellPage />} />
           <Route path="/cua-hang" element={<ShopPage />} />
           <Route path="/tin-nhan" element={<MessagesPage />} />
+          <Route path="/thanh-toan" element={<VnpayPaymentPage />} />
           <Route path="/dang-nhap" element={<LoginPage />} />
           <Route path="/huong-dan" element={<GuidePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
@@ -311,6 +317,7 @@ function ProductPage() {
   const navigate = useNavigate()
   const [actionNotice, setActionNotice] = useState('')
   const [purchaseOpen, setPurchaseOpen] = useState(false)
+  const [paymentBusy, setPaymentBusy] = useState(false)
   const { items, loading, error } = useListings()
   const item = items.find((listing) => listing.id === id)
   const demoStore = useDemoStore()
@@ -349,15 +356,29 @@ function ProductPage() {
             }}><MessageCircle size={17} /> Nhắn người bán</button>
             <button className={`button button-secondary ${saved ? 'is-saved' : ''}`} type="button" onClick={() => setActionNotice(toggleDemoFavorite(item.id) === null ? 'Không lưu được thay đổi. Hãy kiểm tra dung lượng trình duyệt.' : '')}><Heart size={17} fill={saved ? 'currentColor' : 'none'} /> {saved ? 'Đã lưu tin' : 'Lưu tin'}</button>
           </div>
-          {purchaseOpen && <form className="purchase-panel" onSubmit={(event) => {
+          {purchaseOpen && <form className="purchase-panel" onSubmit={async (event) => {
             event.preventDefault()
             const form = new FormData(event.currentTarget)
-            const threadId = requestDemoPurchase(item, String(form.get('fulfillment')), String(form.get('payment')))
+            const method = String(form.get('payment'))
+            if (method === 'VNPAY_SANDBOX') {
+              setPaymentBusy(true)
+              setActionNotice('')
+              try {
+                const { paymentUrl } = await createVnpaySandboxPayment(item.id)
+                window.location.assign(paymentUrl)
+              } catch (error) {
+                setActionNotice(error instanceof Error ? error.message : 'Không thể bắt đầu thanh toán sandbox.')
+              } finally {
+                setPaymentBusy(false)
+              }
+              return
+            }
+            const threadId = requestDemoPurchase(item, String(form.get('fulfillment')), method)
             if (!threadId) { setActionNotice('Không tạo được yêu cầu mua. Tin có thể đã bán hoặc bộ nhớ trình duyệt đã đầy.'); return }
             navigate(`/tin-nhan?thread=${encodeURIComponent(threadId)}`)
           }}>
             <h2>Thông tin yêu cầu mua</h2>
-            <p>Chọn cách giao nhận và thanh toán dự kiến. Chưa có khoản thanh toán nào được thực hiện.</p>
+            <p>Chọn giao nhận và phương thức thanh toán. VNPAY Sandbox chỉ dùng để thử luồng thanh toán, không thu tiền thật.</p>
             <label className="purchase-field">Giao nhận
               <select name="fulfillment" defaultValue="Gặp trực tiếp tại trường NTTU">
                 <option>Gặp trực tiếp tại trường NTTU</option><option>Thỏa thuận địa điểm khác</option>
@@ -365,11 +386,11 @@ function ProductPage() {
             </label>
             <label className="purchase-field">Thanh toán
               <select name="payment" defaultValue="Tiền mặt khi nhận hàng">
-                <option>Tiền mặt khi nhận hàng</option><option>Thỏa thuận trực tiếp</option>
+                <option>Tiền mặt khi nhận hàng</option><option>Thỏa thuận trực tiếp</option>{vnpaySandboxListingIds.has(item.id) && <option value="VNPAY_SANDBOX" disabled={!isVnpayConfigured()}>{isVnpayConfigured() ? 'VNPAY Sandbox · thanh toán thử' : 'VNPAY Sandbox · chờ cấu hình'}</option>}
               </select>
             </label>
-            <button className="button button-primary" type="submit">Gửi yêu cầu mua · {formatPrice(item.price)} <ArrowRight size={16} /></button>
-            <span className="purchase-local-note">Yêu cầu chỉ lưu trên trình duyệt này, người bán chưa nhận được thông báo.</span>
+            <button className="button button-primary" type="submit" disabled={paymentBusy}>{paymentBusy ? 'Đang kết nối VNPAY…' : <>Tiếp tục · {formatPrice(item.price)} <ArrowRight size={16} /></>}</button>
+            <span className="purchase-local-note">VNPAY chỉ dùng kiểm thử với sản phẩm mẫu, không thu tiền thật hoặc đặt hàng thật. Các lựa chọn còn lại tạo yêu cầu lưu trên trình duyệt này.</span>
           </form>}
           {actionNotice && <div className="form-notice" role="status"><ShieldCheck size={18} /> {actionNotice}</div>}
           {isOwner && !isDemoListingSold(item.id) && <button className="demo-sold-button" type="button" onClick={() => { if (!markDemoListingSold(item.id)) setActionNotice('Không lưu được trạng thái tin. Hãy kiểm tra dung lượng trình duyệt.') }}>Đánh dấu tin đã bán</button>}
@@ -377,9 +398,61 @@ function ProductPage() {
           <p className="detail-safety"><ShieldCheck size={17} /> Hẹn gặp nơi công cộng trong trường và kiểm tra sản phẩm trước khi thanh toán.</p>
         </div>
       </div>
-          <div className="detail-note"><strong>Lưu ý về tin đăng</strong><p>Một số sản phẩm và cửa hàng là thông tin minh họa. Yêu cầu mua, tin nhắn và đánh giá chỉ lưu trên trình duyệt này; người bán chưa nhận được thông báo. Website không xử lý thanh toán, hãy chỉ trả tiền khi đã nhận và kiểm tra sản phẩm trực tiếp.</p></div>
+          <div className="detail-note"><strong>Lưu ý về tin đăng</strong><p>Một số sản phẩm và cửa hàng là thông tin minh họa. VNPAY hiện chỉ có luồng Sandbox để kiểm thử, không thu tiền thật. Yêu cầu mua, tin nhắn và đánh giá thông thường chỉ lưu trên trình duyệt này; người bán chưa nhận được thông báo.</p></div>
     </section>
   )
+}
+
+function VnpayPaymentPage() {
+  const [params] = useSearchParams()
+  const txnRef = params.get('txnRef')
+  const returnStatus = params.get('status')
+  const [status, setStatus] = useState<'checking' | 'paid' | 'failed' | 'pending' | 'invalid'>('checking')
+
+  useEffect(() => {
+    if (!txnRef) {
+      setStatus(returnStatus === 'invalid' ? 'invalid' : 'failed')
+      return
+    }
+    let cancelled = false
+    let timer = 0
+    let attempts = 0
+    const checkStatus = async () => {
+      try {
+        const result = await getVnpayPaymentStatus(txnRef)
+        if (cancelled) return
+        if (result.status === 'paid') { setStatus('paid'); return }
+        if (result.status === 'failed' || result.status === 'expired') { setStatus('failed'); return }
+        attempts += 1
+        if (attempts >= 15) { setStatus('pending'); return }
+        timer = window.setTimeout(checkStatus, 2000)
+      } catch {
+        if (!cancelled) setStatus('pending')
+      }
+    }
+    void checkStatus()
+    return () => { cancelled = true; window.clearTimeout(timer) }
+  }, [returnStatus, txnRef])
+
+  const title = status === 'paid' ? 'Thanh toán thử thành công' : status === 'failed' ? 'Giao dịch chưa hoàn tất' : status === 'invalid' ? 'Không xác minh được kết quả' : status === 'pending' ? 'Đang chờ xác nhận' : 'Đang kiểm tra giao dịch'
+  const body = status === 'paid'
+    ? 'VNPAY Sandbox đã xác nhận giao dịch thử. Không có tiền thật được chuyển và đây không phải đơn hàng thật.'
+    : status === 'failed'
+      ? 'Giao dịch bị hủy hoặc không thành công. Bạn có thể quay lại sản phẩm để thử lại.'
+      : status === 'invalid'
+        ? 'Chữ ký trả về không hợp lệ nên website không ghi nhận thanh toán.'
+        : status === 'pending'
+          ? 'VNPAY chưa gửi xác nhận cuối cùng. Đừng thử thanh toán lại ngay; hãy kiểm tra trạng thái sau ít phút.'
+          : 'Website đang đối chiếu kết quả qua máy chủ VNPAY. Kết quả trên trang trả về chưa được xem là xác nhận thanh toán.'
+
+  return <section className="content-page wrap empty-page hero" data-enter>
+    <div className="empty-icon"><ShieldCheck size={26} /></div>
+    <p className="eyebrow">VNPAY Sandbox</p>
+    <h1>{title}</h1>
+    <p>{body}</p>
+    {txnRef && <small className="purchase-local-note">Mã giao dịch thử: {txnRef}</small>}
+    <Link className="button button-primary" to="/">Quay lại chợ <ArrowRight size={16} /></Link>
+  </section>
 }
 
 function SavedPage() {

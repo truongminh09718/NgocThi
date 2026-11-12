@@ -1,0 +1,11 @@
+[functions.vnpay-create-payment]
+verify_jwt = false
+
+[functions.vnpay-ipn]
+verify_jwt = false
+
+[functions.vnpay-return]
+verify_jwt = false
+
+[functions.vnpay-payment-status]
+verify_jwt = false

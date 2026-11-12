@@ -26,6 +26,9 @@ jobs:
       - name: Install packages
         run: npm ci
       - name: Build website
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
         run: npm run build
       - name: Prepare GitHub Pages
         uses: actions/configure-pages@v5

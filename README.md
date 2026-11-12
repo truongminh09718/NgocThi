@@ -33,6 +33,10 @@ Kho này được cấu hình để xuất bản qua GitHub Pages tại `https:/
 
 ## Phần chưa có trong bản demo
 
-OTP thật, tài khoản dùng chung trên máy chủ, đồng bộ giữa thiết bị, chat giữa người dùng thật, duyệt cửa hàng, thanh toán, đánh giá có kiểm chứng và quản trị chưa được triển khai. Không dùng email/mật khẩu thật hoặc mật khẩu đang sử dụng ở dịch vụ khác.
+OTP thật, tài khoản dùng chung trên máy chủ, đồng bộ giữa thiết bị, chat giữa người dùng thật, duyệt cửa hàng, thanh toán tiền thật, đánh giá có kiểm chứng và quản trị chưa được triển khai. Không dùng email/mật khẩu thật hoặc mật khẩu đang sử dụng ở dịch vụ khác.
 
-Thư mục `supabase/` giữ lại bản thiết kế cơ sở dữ liệu cho trường hợp dự án muốn nâng cấp sau này; ứng dụng hiện tại không tải hoặc gọi Supabase.
+Tài khoản, tin đăng và giao dịch thông thường vẫn chạy cục bộ. Supabase chỉ được gọi cho luồng kiểm thử VNPAY khi đã cấu hình các biến môi trường công khai ở giao diện và triển khai Edge Functions.
+
+## VNPAY Sandbox
+
+Mã tích hợp thử nghiệm nằm trong `supabase/functions/`, migration `supabase/migrations/202611120001_vnpay_sandbox.sql` và hướng dẫn cấu hình tại `supabase/payments/README.md`. Đây là luồng Sandbox dành cho sáu sản phẩm mẫu, không thu tiền thật. Cần Supabase project và thông tin merchant VNPAY Sandbox để triển khai; tuyệt đối không đặt hash secret hoặc service-role key ở phía trình duyệt.
