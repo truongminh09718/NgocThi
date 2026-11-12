@@ -1,6 +1,6 @@
 # VNPAY Sandbox setup
 
-This repository contains a **sandbox-only** payment path for the six built-in sample products. It sends a signed payment request from a Supabase Edge Function, receives VNPAY's server-to-server IPN, stores the result, verifies the signed browser return on the server, and displays the server-recorded status. It does not collect real money, pay out sellers, or enable checkout for locally created listings.
+This repository contains a **sandbox-only** QR payment path for the six built-in sample products. It sends a signed payment request with VNPAY's `VNPAYQR` bank code from a Supabase Edge Function, receives VNPAY's server-to-server IPN, stores the result, verifies the signed browser return on the server, and displays the server-recorded status. After merchant credentials are configured, VNPAY displays the QR code on its hosted checkout page. This does not collect real money, pay out sellers, or enable checkout for locally created listings.
 
 ## Required accounts and values
 

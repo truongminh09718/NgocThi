@@ -41,6 +41,7 @@ Deno.serve(async (request) => {
       vnp_TmnCode: tmnCode,
       vnp_Amount: String(item.price * 100),
       vnp_CurrCode: 'VND',
+      vnp_BankCode: 'VNPAYQR',
       vnp_TxnRef: txnRef,
       vnp_OrderInfo: `StuMarket sandbox ${listingId}`,
       vnp_OrderType: 'other',

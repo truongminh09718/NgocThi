@@ -386,11 +386,11 @@ function ProductPage() {
             </label>
             <label className="purchase-field">Thanh toán
               <select name="payment" defaultValue="Tiền mặt khi nhận hàng">
-                <option>Tiền mặt khi nhận hàng</option><option>Thỏa thuận trực tiếp</option>{vnpaySandboxListingIds.has(item.id) && <option value="VNPAY_SANDBOX" disabled={!isVnpayConfigured()}>{isVnpayConfigured() ? 'VNPAY Sandbox · thanh toán thử' : 'VNPAY Sandbox · chờ cấu hình'}</option>}
+                <option>Tiền mặt khi nhận hàng</option><option>Thỏa thuận trực tiếp</option>{vnpaySandboxListingIds.has(item.id) && <option value="VNPAY_SANDBOX" disabled={!isVnpayConfigured()}>{isVnpayConfigured() ? 'Quét mã QR VNPAY Sandbox · thử' : 'Mã QR VNPAY · chờ cấu hình'}</option>}
               </select>
             </label>
             <button className="button button-primary" type="submit" disabled={paymentBusy}>{paymentBusy ? 'Đang kết nối VNPAY…' : <>Tiếp tục · {formatPrice(item.price)} <ArrowRight size={16} /></>}</button>
-            <span className="purchase-local-note">VNPAY chỉ dùng kiểm thử với sản phẩm mẫu, không thu tiền thật hoặc đặt hàng thật. Các lựa chọn còn lại tạo yêu cầu lưu trên trình duyệt này.</span>
+            <span className="purchase-local-note">Mã QR được VNPAY tạo tại trang thanh toán sau khi cấu hình Sandbox. Mã thử không thu tiền thật hoặc tạo đơn thật.</span>
           </form>}
           {actionNotice && <div className="form-notice" role="status"><ShieldCheck size={18} /> {actionNotice}</div>}
           {isOwner && !isDemoListingSold(item.id) && <button className="demo-sold-button" type="button" onClick={() => { if (!markDemoListingSold(item.id)) setActionNotice('Không lưu được trạng thái tin. Hãy kiểm tra dung lượng trình duyệt.') }}>Đánh dấu tin đã bán</button>}
