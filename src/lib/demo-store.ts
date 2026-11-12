@@ -14,6 +14,13 @@ export type DemoConversation = {
   sellerName: string
   updatedAt: string
   messages: DemoMessage[]
+  purchase?: {
+    buyerEmail: string
+    fulfillment: string
+    payment: string
+    status: 'requested' | 'completed'
+    rating?: number
+  }
 }
 export type DemoStore = {
   listings: Listing[]
@@ -114,6 +121,56 @@ export function startDemoConversation(listing: Listing) {
     messages: [{ id: `${id}-hello`, text: `Chào bạn, sản phẩm “${listing.title}” còn không?`, mine: true, createdAt: now }],
   }
   return saveStore({ ...saved, conversations: [conversation, ...saved.conversations] }) ? id : null
+}
+
+export function requestDemoPurchase(listing: Listing, fulfillment: string, payment: string) {
+  const saved = readSavedStore()
+  if (!saved.currentUserEmail || listing.sellerEmail === saved.currentUserEmail || saved.soldIds.includes(listing.id)) return null
+  const now = new Date().toISOString()
+  const existing = saved.conversations.find((thread) => thread.listingId === listing.id)
+  const id = existing?.id ?? `thread-${listing.id}`
+  const orderMessage = `Yêu cầu mua: ${listing.title} · ${listing.price.toLocaleString('vi-VN')}đ. Giao nhận: ${fulfillment}. Thanh toán: ${payment}. Vui lòng xác nhận với mình.`
+  const purchase = { buyerEmail: saved.currentUserEmail, fulfillment, payment, status: 'requested' as const }
+  const conversation: DemoConversation = existing
+    ? { ...existing, updatedAt: now, purchase, messages: [...existing.messages, { id: `${id}-order-${Date.now()}`, text: orderMessage, mine: true, createdAt: now }] }
+    : {
+      id,
+      listingId: listing.id,
+      title: listing.title,
+      price: listing.price,
+      sellerName: listing.sellerName ?? listing.sellerKind,
+      updatedAt: now,
+      purchase,
+      messages: [{ id: `${id}-order-${Date.now()}`, text: orderMessage, mine: true, createdAt: now }],
+    }
+  const conversations = [conversation, ...saved.conversations.filter((thread) => thread.id !== id)]
+  return saveStore({ ...saved, conversations }) ? id : null
+}
+
+export function completeDemoPurchase(threadId: string) {
+  const saved = readSavedStore()
+  const thread = saved.conversations.find((item) => item.id === threadId)
+  if (!thread?.purchase || thread.purchase.buyerEmail !== saved.currentUserEmail || thread.purchase.status !== 'requested') return false
+  const now = new Date().toISOString()
+  return saveStore({
+    ...saved,
+    soldIds: saved.soldIds.includes(thread.listingId) ? saved.soldIds : [...saved.soldIds, thread.listingId],
+    conversations: saved.conversations.map((item) => item.id === threadId
+      ? { ...item, updatedAt: now, purchase: { ...item.purchase!, status: 'completed' } }
+      : item),
+  })
+}
+
+export function rateDemoPurchase(threadId: string, stars: number) {
+  const saved = readSavedStore()
+  const thread = saved.conversations.find((item) => item.id === threadId)
+  if (!thread?.purchase || thread.purchase.buyerEmail !== saved.currentUserEmail || thread.purchase.status !== 'completed') return false
+  return saveStore({
+    ...saved,
+    conversations: saved.conversations.map((item) => item.id === threadId
+      ? { ...item, purchase: { ...item.purchase!, rating: Math.max(1, Math.min(5, stars)) } }
+      : item),
+  })
 }
 
 export function sendDemoMessage(threadId: string, text: string) {

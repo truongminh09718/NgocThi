@@ -32,15 +32,18 @@ import { categories, type Listing } from './data/listings'
 import { useListings } from './lib/marketplace'
 import {
   addDemoListing,
+  completeDemoPurchase,
   clearDemoAccount,
   isDemoListingSold,
   markDemoListingSold,
   rateDemoTransaction,
+  rateDemoPurchase,
   replyDemoMessage,
   sendDemoMessage,
   loginDemoAccount,
   registerDemoAccount,
   startDemoConversation,
+  requestDemoPurchase,
   toggleDemoFavorite,
   useDemoStore,
 } from './lib/demo-store'
@@ -307,6 +310,7 @@ function ProductPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const [actionNotice, setActionNotice] = useState('')
+  const [purchaseOpen, setPurchaseOpen] = useState(false)
   const { items, loading, error } = useListings()
   const item = items.find((listing) => listing.id === id)
   const demoStore = useDemoStore()
@@ -335,19 +339,45 @@ function ProductPage() {
           <div className="detail-actions">
             <button className="button button-primary" type="button" disabled={isDemoListingSold(item.id) || isOwner} onClick={() => {
               if (!demoStore.currentUserEmail) { navigate(`/dang-nhap?redirect=${encodeURIComponent(`/san-pham/${item.id}`)}`); return }
+              setPurchaseOpen((open) => !open)
+            }}><ShoppingBag size={17} /> {isOwner ? 'Tin của bạn' : isDemoListingSold(item.id) ? 'Tin đã bán' : 'Yêu cầu mua'}</button>
+            <button className="button button-secondary" type="button" disabled={isDemoListingSold(item.id) || isOwner} onClick={() => {
+              if (!demoStore.currentUserEmail) { navigate(`/dang-nhap?redirect=${encodeURIComponent(`/san-pham/${item.id}`)}`); return }
               const threadId = startDemoConversation(item)
               if (threadId) navigate(`/tin-nhan?thread=${encodeURIComponent(threadId)}`)
               else setActionNotice('Thiết bị không còn đủ dung lượng để lưu cuộc trò chuyện.')
-            }}><MessageCircle size={17} /> {isOwner ? 'Tin của bạn' : isDemoListingSold(item.id) ? 'Tin đã bán' : 'Nhắn người bán'}</button>
+            }}><MessageCircle size={17} /> Nhắn người bán</button>
             <button className={`button button-secondary ${saved ? 'is-saved' : ''}`} type="button" onClick={() => setActionNotice(toggleDemoFavorite(item.id) === null ? 'Không lưu được thay đổi. Hãy kiểm tra dung lượng trình duyệt.' : '')}><Heart size={17} fill={saved ? 'currentColor' : 'none'} /> {saved ? 'Đã lưu tin' : 'Lưu tin'}</button>
           </div>
+          {purchaseOpen && <form className="purchase-panel" onSubmit={(event) => {
+            event.preventDefault()
+            const form = new FormData(event.currentTarget)
+            const threadId = requestDemoPurchase(item, String(form.get('fulfillment')), String(form.get('payment')))
+            if (!threadId) { setActionNotice('Không tạo được yêu cầu mua. Tin có thể đã bán hoặc bộ nhớ trình duyệt đã đầy.'); return }
+            navigate(`/tin-nhan?thread=${encodeURIComponent(threadId)}`)
+          }}>
+            <h2>Thông tin yêu cầu mua</h2>
+            <p>Chọn cách giao nhận và thanh toán dự kiến. Chưa có khoản thanh toán nào được thực hiện.</p>
+            <label className="purchase-field">Giao nhận
+              <select name="fulfillment" defaultValue="Gặp trực tiếp tại trường NTTU">
+                <option>Gặp trực tiếp tại trường NTTU</option><option>Thỏa thuận địa điểm khác</option>
+              </select>
+            </label>
+            <label className="purchase-field">Thanh toán
+              <select name="payment" defaultValue="Tiền mặt khi nhận hàng">
+                <option>Tiền mặt khi nhận hàng</option><option>Thỏa thuận trực tiếp</option>
+              </select>
+            </label>
+            <button className="button button-primary" type="submit">Gửi yêu cầu mua · {formatPrice(item.price)} <ArrowRight size={16} /></button>
+            <span className="purchase-local-note">Yêu cầu chỉ lưu trên trình duyệt này, người bán chưa nhận được thông báo.</span>
+          </form>}
           {actionNotice && <div className="form-notice" role="status"><ShieldCheck size={18} /> {actionNotice}</div>}
           {isOwner && !isDemoListingSold(item.id) && <button className="demo-sold-button" type="button" onClick={() => { if (!markDemoListingSold(item.id)) setActionNotice('Không lưu được trạng thái tin. Hãy kiểm tra dung lượng trình duyệt.') }}>Đánh dấu tin đã bán</button>}
           {isOwner && isDemoListingSold(item.id) && <div className="demo-rating"><strong>Đánh giá giao dịch</strong><div role="group" aria-label="Chọn số sao đánh giá">{[1, 2, 3, 4, 5].map((star) => <button key={star} className={star <= (demoStore.ratings[item.id] ?? 0) ? 'is-rated' : ''} type="button" aria-label={`${star} sao`} aria-pressed={star === demoStore.ratings[item.id]} onClick={() => { if (!rateDemoTransaction(item.id, star)) setActionNotice('Không lưu được đánh giá. Hãy kiểm tra dung lượng trình duyệt.') }}>★</button>)}</div>{demoStore.ratings[item.id] ? <span>Đã chọn {demoStore.ratings[item.id]} sao. Đánh giá lưu trên thiết bị này.</span> : <span>Đánh giá chỉ lưu trên thiết bị này.</span>}</div>}
           <p className="detail-safety"><ShieldCheck size={17} /> Hẹn gặp nơi công cộng trong trường và kiểm tra sản phẩm trước khi thanh toán.</p>
         </div>
       </div>
-          <div className="detail-note"><strong>Lưu ý về tin đăng</strong><p>Một số sản phẩm và cửa hàng là thông tin minh họa. Tính năng liên hệ chưa kết nối người bán; tin nhắn và đánh giá chỉ lưu trên trình duyệt này. Không chuyển tiền qua thông tin trên trang.</p></div>
+          <div className="detail-note"><strong>Lưu ý về tin đăng</strong><p>Một số sản phẩm và cửa hàng là thông tin minh họa. Yêu cầu mua, tin nhắn và đánh giá chỉ lưu trên trình duyệt này; người bán chưa nhận được thông báo. Website không xử lý thanh toán, hãy chỉ trả tiền khi đã nhận và kiểm tra sản phẩm trực tiếp.</p></div>
     </section>
   )
 }
@@ -499,6 +529,10 @@ function MessagesPage() {
       {demoStore.conversations.length ? <div className="demo-chat-layout">
         <aside className="demo-thread-list" aria-label="Các cuộc trao đổi">{demoStore.conversations.map((thread) => <button key={thread.id} type="button" className={`demo-thread ${thread.id === selectedId ? 'is-selected' : ''}`} onClick={() => setParams({ thread: thread.id })}><strong>{thread.title}</strong><span>{thread.sellerName}</span><small>{thread.messages.at(-1)?.text}</small></button>)}</aside>
         {selected && <div className="demo-chat"><div className="demo-chat-heading"><div><strong>{selected.sellerName}</strong><span>{selected.title} · {formatPrice(selected.price)}</span></div><Link to={`/san-pham/${selected.listingId}`}>Xem tin</Link></div>
+          {selected.purchase && <div className="purchase-order-card"><div><strong>Yêu cầu mua · {selected.purchase.status === 'completed' ? 'Đã nhận hàng' : 'Chờ xác nhận giao dịch'}</strong><span>{selected.purchase.fulfillment} · {selected.purchase.payment}</span></div>
+            {selected.purchase.status === 'requested' && selected.purchase.buyerEmail === demoStore.currentUserEmail && <button className="button button-secondary" type="button" onClick={() => { if (!completeDemoPurchase(selected.id)) setNotice('Chưa thể xác nhận giao dịch này.') }}>Xác nhận đã nhận hàng</button>}
+            {selected.purchase.status === 'completed' && selected.purchase.buyerEmail === demoStore.currentUserEmail && <div className="purchase-rating"><strong>Đánh giá giao dịch</strong><div role="group" aria-label="Đánh giá người bán">{[1, 2, 3, 4, 5].map((star) => <button key={star} type="button" className={star <= (selected.purchase?.rating ?? 0) ? 'is-rated' : ''} aria-label={`${star} sao`} aria-pressed={selected.purchase?.rating === star} onClick={() => { if (!rateDemoPurchase(selected.id, star)) setNotice('Không lưu được đánh giá.') }}>★</button>)}</div></div>}
+          </div>}
           <div className="demo-chat-messages" aria-live="polite">{selected.messages.map((message) => <div key={message.id} className={`demo-message ${message.mine ? 'mine' : ''}`}><p>{message.text}</p><time>{new Date(message.createdAt).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })}</time></div>)}</div>
           <form className="demo-chat-composer" onSubmit={submitMessage}><label className="visually-hidden" htmlFor="demo-message">Tin nhắn</label><input id="demo-message" name="message" maxLength={500} placeholder="Viết tin nhắn…" /><button className="button button-primary" type="submit" aria-label="Gửi tin nhắn"><ArrowRight size={18} /></button></form>
         </div>}
