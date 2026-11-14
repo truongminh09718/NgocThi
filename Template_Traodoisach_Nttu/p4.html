@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>StuMarket - NTTU Campus Marketplace</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-container": "#fd651e", "surface-container": "#eaedff", "surface-bright": "#faf8ff", "tertiary-container": "#007d55", "background": "#faf8ff", "on-primary-fixed": "#00174b", "outline": "#737686", "secondary-fixed": "#ffdbce", "surface": "#faf8ff", "primary-fixed-dim": "#b4c5ff", "on-background": "#131b2e", "surface-container-lowest": "#ffffff", "secondary-fixed-dim": "#ffb599", "outline-variant": "#c3c6d7", "inverse-on-surface": "#eef0ff", "on-secondary": "#ffffff", "on-error": "#ffffff", "primary-fixed": "#dbe1ff", "secondary": "#a73a00", "on-tertiary": "#ffffff", "on-secondary-fixed": "#370e00", "surface-container-highest": "#dae2fd", "on-tertiary-fixed": "#002113", "primary": "#004ac6", "surface-variant": "#dae2fd", "surface-tint": "#0053db", "error-container": "#ffdad6", "tertiary-fixed": "#6ffbbe", "tertiary": "#006242", "on-tertiary-fixed-variant": "#005236", "on-surface-variant": "#434655", "on-secondary-container": "#571a00", "on-tertiary-container": "#bdffdb", "surface-container-high": "#e2e7ff", "inverse-primary": "#b4c5ff", "surface-container-low": "#f2f3ff", "on-surface": "#131b2e", "on-error-container": "#93000a", "on-primary-fixed-variant": "#003ea8", "on-primary": "#ffffff", "surface-dim": "#d2d9f4", "on-secondary-fixed-variant": "#7f2b00", "inverse-surface": "#283044", "tertiary-fixed-dim": "#4edea3", "primary-container": "#2563eb", "error": "#ba1a1a", "on-primary-container": "#eeefff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "margin": "1rem", "gutter": "1rem", "space-md": "1rem" }, "fontFamily": { "body-sm": ["Inter"], "body-lg": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Inter"], "label-md": ["Inter"], "label-lg": ["Inter"], "headline-xl-mobile": ["Inter"], "headline-sm": ["Inter"], "headline-xl": ["Inter"], "headline-md": ["Inter"], "headline-lg-mobile": ["Inter"], "body-md": ["Inter"] }, "fontSize": { "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}], "headline-lg": ["30px", {"lineHeight": "38px", "fontWeight": "700"}], "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}], "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}], "headline-xl-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}], "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}], "headline-xl": ["36px", {"lineHeight": "44px", "fontWeight": "700"}], "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}], "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-primary-fixed text-on-primary-fixed py-1.5 px-margin"><div class="max-w-7xl mx-auto flex items-center justify-center gap-space-xs text-center"><span class="material-symbols-outlined text-primary text-[18px]">verified_user</span><p class="font-label-sm text-label-sm">Mẹo an toàn: Giao dịch trực tiếp tại sảnh thư viện hoặc căn tin trường để kiểm tra giáo trình trước khi thanh toán</p></div></div><div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><img alt="StuMarket Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCEK88J4hRPmOHioRjLUZyFyRc3j9R38C8iRd8ES-npftexsuVQP_jDEj808-VEzn-S1neE0v1XAzLlWjr7ti2-aV-c0fzgUIdBKQeUyCDeNq5eMKTS-tlOkya3t5t2fDgbwJlzBmIWAeU3BYu9py26P_S1fQ_eVbDm5K_9igr5nHCnp_aE7JOJkX_dBPy55cA6U7l3mJ_91WkNJXGk0lA9p93gf3iSyqKOqrCTstzN"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">StuMarket</span><span class="font-label-sm text-label-sm text-on-surface-variant">NTTU Campus Commerce</span></div></div><div class="flex-1 max-w-2xl hidden lg:flex items-center bg-surface-container-low rounded-lg p-1"><div class="relative flex items-center pl-space-sm pr-space-xs"><span class="material-symbols-outlined text-primary text-[18px] mr-1.5">apartment</span><select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none cursor-pointer pr-space-xs"><option value="all">Tất cả cơ sở</option><option value="q4">Cơ sở Quận 4</option><option value="q12">Cơ sở Quận 12</option><option value="q7">Cơ sở Quận 7</option><option value="apd">Cơ sở An Phú Đông</option></select></div><div class="w-[1px] h-6 bg-outline-variant shrink-0 mx-1"></div><div class="relative flex-1 flex items-center pl-space-xs pr-space-sm"><span class="material-symbols-outlined text-outline text-[20px] mr-2">search</span><input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" placeholder="Tìm giáo trình, máy tính Casio, văn phòng phẩm, tài liệu ôn thi..." type="text"/></div></div><div class="flex items-center gap-space-md shrink-0"><div class="hidden xl:flex items-center gap-space-sm bg-surface-container-low px-space-sm py-1.5 rounded-full"><span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span><div class="flex flex-col text-left"><div class="flex items-center gap-1"><span class="font-label-md text-label-md text-on-surface font-semibold">Nguyễn Minh Tuấn</span><span class="font-label-sm text-label-sm text-tertiary font-bold">• Đã xác minh</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">MSSV 210001234 - Khoa CNTT</span></div></div><div class="flex items-center gap-space-xs"><a class="p-2 text-on-surface-variant hover:text-primary transition-colors relative flex items-center justify-center" data-path="tin-nhan-thuong-luong" href="#"><span class="material-symbols-outlined text-[22px]">chat_bubble</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary-container"></span></a><a class="p-2 text-on-surface-variant hover:text-primary transition-colors relative flex items-center justify-center" data-path="gio-hang-cua-ban" href="#"><span class="material-symbols-outlined text-[22px]">shopping_bag</span></a></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNUylALvheEov8KGKI_byemQ-pkHuq7Ti-X7zCpMbdi8P3bT0-LmFNXd_Y--yeb2LdbFy4rfdfJw9Ox9RMP-EBufhUXRkOBIlV-fhOJgUREutMLxFUuzRrUB58xdivqN-N3-2nMctY-1Rr7LfKiluRrpPaKfVAnWqm4zChMFnxnauilzHiEXmApnTIyMVwgxpZR_vMxw92guuL80XMSc4E9S2D6R96y9pxZg6yLkbN"/></div></div><div class="bg-surface-container-lowest shadow-[0_1px_2px_rgba(0,0,0,0.03)] hidden md:block"><div class="max-w-7xl mx-auto px-margin"><nav class="flex items-center gap-space-lg h-11" data-active-classes="text-primary font-bold border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-2.5" data-path="trang-chu" href="#">Trang chủ</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-2.5" data-path="quy-trinh-hoat-dong" href="#">Quy trình hoạt động</a><a aria-current="page" class="transition-colors py-2.5 text-primary font-bold border-b-2 border-primary" data-path="cua-hang-van-phong-pham" href="#">Cửa hàng văn phòng phẩm</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-2.5" data-path="tin-nhan-thuong-luong" href="#">Tin nhắn &amp; Thương lượng</a><a class="ml-auto font-label-lg text-label-lg bg-primary text-on-primary hover:bg-primary-container px-space-md py-1.5 rounded-lg transition-colors flex items-center gap-1.5 shadow-sm" data-path="dang-tin-ban-do" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span>Đăng tin bán đồ</a></nav></div></div></header><main class="w-full pt-[156px] min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Top Visual Merchant Banner & Hero -->
+<div class="w-full bg-surface-container-low pb-space-lg">
+<div class="max-w-7xl mx-auto px-margin pt-space-md">
+<!-- Store Header Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute right-1/4 -bottom-20 w-72 h-72 bg-tertiary-fixed/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-md">
+<!-- Merchant Avatar / Emblem -->
+<div class="relative shrink-0">
+<div class="w-24 h-24 rounded-xl bg-surface-container flex items-center justify-center shadow-sm overflow-hidden p-2">
+<img class="w-full h-full object-contain" data-alt="A refined logo emblem for a university stationery store featuring a modern book and pen crest with deep blue and warm amber tones, crisp geometric minimalist illustration style on clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATIUgdEWtXmySdY41pJGJTl0y19apQIRlj-W2b0mQ5GcjeShbdl9Vuxl4RRlJlpbuoNvdvgAPXVgBtKm4BQeNsOMxYh7IFGzhdx5cbR-8njPjNG5Ss5KKfMLp8wpSPgcdd4Yd3sdIVSEaS00SYJNnr-mI-Ni5xgkNYQ7npBoRmy5Zbtcr8-EgsjYTenR3dIF8k5OZUBAFLirb71Eh-rmoiLFYJKzEDtIZu3bxKno66"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-primary text-on-primary rounded-full p-1 shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<!-- Merchant Profile Details -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px]">storefront</span>
+                  CỬA HÀNG ĐỐI TÁC CHÍNH THỨC - ĐÃ ĐĂNG KÝ PHÒNG CTSV
+                </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
+                  Sẵn hàng tại quầy
+                </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+                Nhà Sách &amp; Văn Phòng Phẩm NTTU Station (Khu B)
+              </h1>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-space-md text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[18px]">shopping_cart_checkout</span>
+<span class="font-medium text-on-surface">Đã phục vụ:</span> 3.420 đơn hàng sinh viên
+                </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-semibold text-on-surface">4.95 / 5.0</span>
+<span class="text-outline">(648 đánh giá học vụ)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">pin_drop</span>
+<span>Sảnh Tầng Trệt Nhà B, Cơ sở Nguyễn Tất Thành Q.4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Merchant Actions CTA -->
+<div class="flex flex-row lg:flex-col sm:self-end lg:self-center gap-space-xs shrink-0 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial flex items-center justify-center gap-2 bg-primary text-on-primary hover:bg-primary-container px-space-md py-2.5 rounded-lg shadow-sm font-label-lg text-label-lg transition-all">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+              Nhắn tin quầy thu ngân
+            </button>
+<button class="flex-1 sm:flex-initial flex items-center justify-center gap-2 bg-surface-container-low text-on-surface hover:bg-surface-container px-space-md py-2.5 rounded-lg font-label-lg text-label-lg transition-all">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+              Mở cửa: 07:00 - 18:30 (Thứ 2 - Thứ 7)
+            </button>
+</div>
+</div>
+<!-- Student Distinction Ribbon (Explaining Store Profile) -->
+<div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-space-sm flex flex-col md:flex-row md:items-center justify-between gap-space-xs text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">badge</span>
+<p class="font-body-sm text-body-sm">
+<span class="font-bold text-primary">Tài khoản Cửa hàng xác minh:</span> Phân phối 100% dụng cụ học tập mới, xuất hóa đơn VAT điện tử, cam kết đổi mới 1:1 trong 7 ngày nếu lỗi sản xuất.
+            </p>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold flex items-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[16px]">verified_user</span> Chứng nhận Chuẩn Học Cụ NTTU
+          </span>
+</div>
+</div>
+<!-- Promotion Banner -->
+<div class="mt-space-md rounded-xl bg-gradient-to-r from-primary to-primary-container text-on-primary p-space-md shadow-sm relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest/15 backdrop-blur-sm flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px] text-tertiary-fixed">percent</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm tracking-tight text-surface-bright">Đặc quyền Sinh viên NTTU 2025</span>
+<p class="font-body-sm text-body-sm text-primary-fixed">Giảm ngay 10% toàn bộ dụng cụ &amp; giáo trình phụ trợ khi xuất trình Thẻ Sinh Viên hoặc đặt giữ chỗ trực tiếp qua StuMarket.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs self-start md:self-auto shrink-0">
+<span class="px-space-sm py-1.5 bg-surface-container-lowest text-primary font-label-md text-label-md rounded-lg font-bold shadow-sm">MÃ: NTTUSTATION10</span>
+<button class="px-space-md py-1.5 bg-secondary-container text-on-secondary rounded-lg font-label-md text-label-md font-semibold hover:opacity-95 shadow-sm transition-opacity flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span> Áp dụng ngay
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Store Navigation Submenu -->
+<div class="bg-surface-container-lowest sticky top-20 z-30 shadow-sm">
+<div class="max-w-7xl mx-auto px-margin flex items-center justify-between overflow-x-auto scrollbar-none py-2 gap-space-sm">
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="px-space-md py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm">Tất cả sản phẩm (184)</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors">Bút &amp; Viết</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors">Vở &amp; Sổ tay NTTU</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors">Giấy in &amp; File hồ sơ</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors">Máy tính Casio chính hãng</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors">Combo Tân Sinh Viên</button>
+</div>
+<div class="hidden md:flex items-center gap-2 pl-space-md shrink-0 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px] text-tertiary">local_shipping</span>
+        Giao sảnh nhà B trong 15 phút
+      </div>
+</div>
+</div>
+<!-- Main Body Content Grid -->
+<div class="max-w-7xl mx-auto px-margin py-space-xl flex flex-col gap-space-xl">
+<!-- Category Showcase Carousel Grid -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Danh mục Học cụ Chính hãng</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sản phẩm tiêu chuẩn cho các ngành Kỹ thuật, Kinh tế, Y dược, Ngoại ngữ NTTU</p>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold flex items-center gap-1 cursor-pointer hover:underline">
+          Xem bảng giá sỉ CLB / Nhóm học tập
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-md">
+<!-- Cat 1: But -->
+<div class="group bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center mb-space-xs group-hover:scale-105 transition-transform overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A set of clean professional pens including blue ink ballpoint pens, colorful pastel gel pens, and modern highlighters arranged on a minimalist clean background, soft daylight, sharp studio photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA23k53V4_i8xGzG9JiGBrnTjF-Lm70R8OFXwL3wfSes_1U01kFII0XFf4SPAaUESfvNtYaje2CUY_yYH6MHEIP8jkD3k269Rk1tEUOLV3fvBD-Xpy32Sm2_JhRmRurG2mqi70TjxySy4MhHfTQEGP80g0XeO83NLSskOPLU46ymdUVL3H6WJNNS-hBn7wPlYRHavn_epHGKRaPobHz3LI1b87x24P3tvogMEmg1QbC"/>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Bút &amp; Viết</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Thiên Long, Gel, Dạ quang</span>
+<span class="mt-space-xs px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">48 mã hàng</span>
+</div>
+<!-- Cat 2: Vo -->
+<div class="group bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center mb-space-xs group-hover:scale-105 transition-transform overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="University lined notebooks with clean campus branding printed on matte cardstock covers, neatly bound spirals and stapled spines, school supplies still life, warm clean ambient illumination" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQvkl3LZItJ92-wJeTbHcTlN2ftGZqf5t-H4QfgmX1RPFnpGkZfb5MN_A9Gjjz__CMKITGZpSW__F7_-N-VlD9H8JLzBt8NGaGHINaKLjcxyXqp2KkTUmWHml8LumvgAGDBOOj9jGVnjeTpM_r9128yNeOtXPUfJtMIE41_4f3Ds3zyV2TSQji0l_SJsnWYx1bavjkA2XEZHVHVMLxoqweeNIP2jtiLXJg1N9nKeM3"/>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Vở &amp; Tập NTTU</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Kẻ ngang 120-200 trang</span>
+<span class="mt-space-xs px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Chính hãng Logo</span>
+</div>
+<!-- Cat 3: Giay -->
+<div class="group bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center mb-space-xs group-hover:scale-105 transition-transform overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Neat reams of premium A4 copy paper beside stacks of exam answer sheets and draft note papers, professional office stationery aesthetic, soft studio shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqkVMoLbc1_tNjtVxulCUp1RcvwrEhnVWWJz4VoYbTV-RhYtHVP2Be8yf9XDsu55mzc1BJ7oHOH1V5a2QXVxnhBgflcqRcxnpnPiCu5KgGvu7E2LhOrmY4G-uXyFVYpTzco1ZPQ-_WoHCtGNsrjZ6iEE3UOTE1SvRJGdB49Q-lwDskeg61DKjFl-6Ons17rqPS_KkTHPaLrhoToTyfBkqY8IfPljjcSsG32Q_wGadj"/>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Giấy in &amp; Thi cử</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Double A 70gsm, Giấy thi</span>
+<span class="mt-space-xs px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Đóng gói sẵn</span>
+</div>
+<!-- Cat 4: File -->
+<div class="group bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center mb-space-xs group-hover:scale-105 transition-transform overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern document organization supplies including blue ring binders, clear display plastic folders, and report presentation folders on a clean desk surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd1qzuoW3mBKgmhSel2w2N2BiLakekYGYdDzRjS1FoivbZKWARW7gkKTw8G3jlYSi_cVtnDyGKL8WgXl5hlK7graLTxF9eEmyCMrCuPJ8arIwkZoTnuoSRZ58KNq0ju_edAFo6WA2FBFCQGUWyXM9sndb3O4D_Xa7p9AzqrwbSubfAJUAhckjJTUOlYm6PjuKHiLT106sX6b61oxLZzah6-2mUJiAO5E9rP7aJ2ulz"/>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">File Tài liệu</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Bìa còng, bìa lá, trình ký</span>
+<span class="mt-space-xs px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Bảo vệ đồ án</span>
+</div>
+<!-- Cat 5: Dung cu -->
+<div class="group bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center mb-space-xs group-hover:scale-105 transition-transform overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Technical drafting stationery including precision acrylic set squares, metal geometry compasses, quality eraser, and technical mechanical pencils organized neatly on light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgYEEbIBN0x_3JgJMOeXIjiwWhB5kYUGl5Ko82VKcT0VkO2G8f_HifkWt602hJwNVVjKA3uCBdinfFwh49TEdUKn9DriFNLNGHzO9IfUkVhwK7M_PFaWGRPhsHyON0pA-v6vnrfOFVJXvC_y1NT-HdZRXJykE3SHw3eniFSedy0sdN8f8j4x9JeocJiA1sNfd_zxfBqY8JxyriDRcVzRV9iXVBnMBMiZtsF-epLCHs"/>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Dụng cụ vẽ &amp; đo</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Compa, êke, gôm tẩy Pentel</span>
+<span class="mt-space-xs px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">Chuẩn đồ họa</span>
+</div>
+<!-- Cat 6: May tinh -->
+<div class="group bg-surface-container-lowest rounded-xl p-space-sm shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high flex items-center justify-center mb-space-xs group-hover:scale-105 transition-transform overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Official scientific calculator in original protective packaging box with warranty hologram and clear keys, modern engineering student equipment, crisp studio photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0iz52rUPppJ8TquKVOAxf9OUZFu4dnI-MO61g-ELPXT3u2nexFm1xmYylsG5XV6ErUqYaWTpkw5GEy6gDDPp8pcjs55by8Ylg1v5qZRUmd5F57c1FWkFs45XHKeKv2Uyt9XonIY5MCo1nZZs46nrLQD_OwylUVModJepRvdS-T2YKnLYLN_1NIrSJ5N1VwvFOu4UqFmxb7w_d56VxW01ygalGxt4N9qBHAUAe7Ont"/>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Máy tính Casio</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">580VN X &amp; 880BTG BH 7 năm</span>
+<span class="mt-space-xs px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary-container font-label-sm text-label-sm font-bold">Chính hãng Bitex</span>
+</div>
+</div>
+</div>
+<!-- Official Merchant Distinction Info Panel (Crucial Requirement) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-space-md gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[28px]">policy</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Minh bạch tài khoản tại StuMarket NTTU</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Phân biệt tài khoản Cá nhân Sinh viên &amp; Cửa hàng Văn phòng phẩm được cấp phép</p>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">
+          Cập nhật Quy chế Thương mại Nội bộ NTTU 2025
+        </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-sm">
+<!-- Student Account Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between mb-1">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-tertiary">school</span>
+                Tài khoản: Sinh viên NTTU
+              </span>
+<span class="font-label-sm text-label-sm text-outline">Giao dịch P2P Cá nhân</span>
+</div>
+<ul class="space-y-2 mt-2 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0">check</span>
+<span>Chuyên mục: Thanh lý giáo trình cũ, đồ án kỳ trước, máy tính đã qua sử dụng.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0">check</span>
+<span>Tình trạng hàng hóa: Đa dạng độ mới (60% - 95%), có ghi chú thực tế của chủ cũ.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary-container text-[18px] shrink-0">check</span>
+<span>Phương thức gặp mặt: Hẹn trực tiếp tại canteen, thư viện hoặc tự thỏa thuận trong app.</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-md pt-space-xs font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">info</span>
+            Phù hợp: Sinh viên muốn tiết kiệm chi phí học tập tối đa.
+          </div>
+</div>
+<!-- Official Store Account Card -->
+<div class="bg-surface-container-high rounded-xl p-space-md flex flex-col justify-between shadow-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between mb-1">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-primary text-on-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">storefront</span>
+                Tài khoản: Cửa hàng Đối tác NTTU Station
+              </span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Xác thực Phòng CTSV</span>
+</div>
+<ul class="space-y-2 mt-2 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0">verified</span>
+<span><strong>Hàng mới 100% nguyên hộp:</strong> Nhập chính hãng từ Thiên Long, Bitex, Double A, Pentel.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0">verified</span>
+<span><strong>Bảo hành chính thức:</strong> Đầy đủ phiếu bảo hành, tem chống giả Bitex, hóa đơn trường.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0">verified</span>
+<span><strong>Nhận đồ tức thì:</strong> Nhận tại Quầy Tầng Trệt Nhà B hoặc giao tận phòng thi/lớp học.</span>
+</li>
+</ul>
+</div>
+<div class="mt-space-md pt-space-xs font-label-sm text-label-sm text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">support_agent</span>
+            Hỗ trợ đổi trả trong 7 ngày làm việc tại quầy đại diện trường.
+          </div>
+</div>
+</div>
+</div>
+<!-- Product Showcase: Official Stationery & Casio -->
+<div class="flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Sản phẩm Nổi bật tại Quầy Cơ sở Q.4</h2>
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary font-label-sm text-label-sm">Đang mở bán</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Đảm bảo hàng mới 100%, có hỗ trợ đặt giữ chỗ để tới lấy trước giờ vào lớp</p>
+</div>
+<!-- Filter chips -->
+<div class="flex items-center gap-2 overflow-x-auto scrollbar-none py-1">
+<span class="text-on-surface-variant font-label-sm text-label-sm shrink-0">Lọc nhanh:</span>
+<button class="px-space-sm py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">Bán chạy nhất</button>
+<button class="px-space-sm py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">Máy tính Bộ GD cho phép</button>
+<button class="px-space-sm py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">Combo tiết kiệm</button>
+</div>
+</div>
+<!-- Products Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-space-md">
+<!-- Product Card 1: Casio fx-880BTG -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden group">
+<div class="relative aspect-square w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Official Casio fx 880 BTG scientific calculator with vivid high contrast display on contemporary packaging, showing original metallic Bitex warranty seal, clean top down studio product photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiFR2h_tDKCtnW4Qut_1vcsF9xxeB09UsqLmZ1XHSmgcBukrKYko_QZvEuBaBslDsqhq7FzVmsHg1Va2anmDwxpSdfo657-jbVkgL1WvPnRVW8lKOHtTEKr7ky6hdMLAyQ0cwuSrHGZdlmaCSMuVs-Q3xTy80f6ZK6wKk55b69PbgYVRn-aGc73oY8G9UC3IrJ_JUrOylC87OcxiY7j4Xmx1PSkeRfZ93a0hYlpWFp"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-1 rounded bg-surface-container-lowest/95 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold shadow-sm">MỚI 100% NGUYÊN HỘP</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-semibold shadow-sm">BH CHÍNH HÃNG 7 NĂM</span>
+</div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant hover:text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-1 rounded text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Sẵn 42 chiếc tại kho B
+              </span>
+<span class="text-on-surface-variant font-medium">Quầy Tầng Trệt</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">CASIO CHÍNH HÃNG</span>
+<span class="font-label-sm text-label-sm text-outline">Mã: FX880-NTTU</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+                Máy tính khoa học Casio fx-880BTG (Có Bluetooth &amp; Bảng tính)
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Chuẩn phòng thi, kết nối điện thoại vẽ đồ thị, tem QR Bitex.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-secondary font-bold">790.000đ</span>
+<span class="font-body-sm text-body-sm text-outline line-through">890.000đ</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-error font-label-sm text-label-sm">-11%</span>
+</div>
+<!-- Action buttons -->
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+                  Giữ tại quầy
+                </button>
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-primary text-on-primary hover:bg-primary-container rounded font-label-md text-label-md shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+                  Thêm vào giỏ
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2: Casio fx-580VN X -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden group">
+<div class="relative aspect-square w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Original Casio fx 580VN X scientific calculator with high resolution LCD display, pristine new in sealed blister pack with anti-counterfeit sticker, campus stationery catalog photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKp7hj9KLYmCfpU6_Aupt9CCEU1VdhlpHNvyYgXJf8128oqtDCLIav7aE_SGBjbm2jE1whIDJdVdTTWt51FtuKnL0B46qQqLQ7lsF_s76iKugN8JynB1Lu6WPzfYpG1-qJjioaYUfzMSz5p75Io7pH4jPc9SWHosyGOTsAti4S7wGK4qeY426mQIEfaTlB2VCIVkB76NPKlf6gqNeVTX7ryCiByMOakhOxmsYSF2rV"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-1 rounded bg-surface-container-lowest/95 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold shadow-sm">MỚI 100% NGUYÊN HỘP</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-semibold shadow-sm">BẢO HÀNH 7 NĂM</span>
+</div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant hover:text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-1 rounded text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Sẵn 88 chiếc
+              </span>
+<span class="text-on-surface-variant font-medium">Quầy Tầng Trệt</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">CASIO CHÍNH HÃNG</span>
+<span class="font-label-sm text-label-sm text-outline">Mã: FX580-VNX</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+                Máy tính Casio fx-580VN X (Giao diện Tiếng Việt 521 tính năng)
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Lựa chọn số 1 cho các môn Giải tích, Đại số tuyến tính, Xác suất thống kê.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-secondary font-bold">665.000đ</span>
+<span class="font-body-sm text-body-sm text-outline line-through">750.000đ</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-error font-label-sm text-label-sm">-11%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+                  Giữ tại quầy
+                </button>
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-primary text-on-primary hover:bg-primary-container rounded font-label-md text-label-md shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+                  Thêm vào giỏ
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 3: Tap Sinh Vien NTTU 200 Trang -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden group">
+<div class="relative aspect-square w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Pack of 5 NTTU university branded student notebooks with 200 grid lined pages, premium thick anti-ghosting cream paper, pristine campus book aesthetic photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB56n4BqsxKAP6G-3SJ8uus8ykj8qcO0Hl_7-fZkg54GuKXffPXXMFJLInL4fZPjyMJ6YsodFw4PLfyefj17owM1iJkUNpK3FmGlCW-ntd3k1NSDB4KMCQ46BAEa8qni3SFNh4RuLsgYRAeBMQRlaKOeyNdUjHobw-3xF5y-H04tSOPD3x_gWve-Vjf7Hou0_8v_4LlY_FfQZgYkSQOoIFA0AN38Jo3k7LSvfyJO49l"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-1 rounded bg-surface-container-lowest/95 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold shadow-sm">ĐỘC QUYỀN NTTU</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold shadow-sm">COMBO LỐC 5 QUYỂN</span>
+</div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant hover:text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-1 rounded text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Sẵn 300+ lốc
+              </span>
+<span class="text-on-surface-variant font-medium">Lấy ngay 5p</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">VỞ &amp; SỔ TAY</span>
+<span class="font-label-sm text-label-sm text-outline">ĐL 80gsm</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+                Lốc 5 cuốn Tập sinh viên NTTU kẻ ngang 200 trang chống lóa
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Giấy dày không lem mực gel, có bìa in lịch đào tạo niên khóa.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-secondary font-bold">58.000đ</span>
+<span class="font-body-sm text-body-sm text-outline line-through">70.000đ</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(11.600đ/cuốn)</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+                  Giữ tại quầy
+                </button>
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-primary text-on-primary hover:bg-primary-container rounded font-label-md text-label-md shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+                  Thêm vào giỏ
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 4: Giay In Double A A4 -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden group">
+<div class="relative aspect-square w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Original sealed ream of Double A A4 70gsm photocopy and printing paper placed cleanly next to freshly printed academic reports on high quality desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNCnM2bsXAa6F4dCCBKbS97CfXqwydG5B2JYcLsf6d9qyxqbe35fhcKHbQZU4Mc6wb46XkFFtBLWjKXjfYQh_15nZ-ucdE1P1XW2GDUvmKRWZlbrPLeUL2Qkt2z_or-AyXv38BCGAse1rNR28yyM9Iv96GHuvVP6FkcUJXHwF_PUnjmlEZ6Y7OZfu7UOcblhiUuzxkeywR6XQZVI-N1EpHwRWQtFL_wbzFdklRCwm1"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-1 rounded bg-surface-container-lowest/95 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold shadow-sm">MỚI 100% NGUYÊN GRAM</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-semibold shadow-sm">IN TIỂU LUẬN / ĐỒ ÁN</span>
+</div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant hover:text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-1 rounded text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Sẵn 150 ram
+              </span>
+<span class="text-on-surface-variant font-medium">Kho sảnh B</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">DOUBLE A CHÍNH HÃNG</span>
+<span class="font-label-sm text-label-sm text-outline">500 tờ / gram</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+                Gram Giấy in Double A Khổ A4 70gsm (Chuyên in đồ án tốt nghiệp)
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Độ trắng 95%, bề mặt siêu mịn, không kẹt máy in phòng photo trường.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-secondary font-bold">78.000đ</span>
+<span class="font-body-sm text-body-sm text-outline line-through">92.000đ</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-error font-label-sm text-label-sm">-15%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+                  Giữ tại quầy
+                </button>
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-primary text-on-primary hover:bg-primary-container rounded font-label-md text-label-md shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+                  Thêm vào giỏ
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 5: Hop But Bi Thien Long 20 Cay -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden group">
+<div class="relative aspect-square w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Box of 20 classic blue ballpoint pens by Thien Long on modern student study desk beside exam worksheets and transparent stationery pouch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1PWHRkOcLoVv4C9QMgLjylduc-H6oFtcpvQVZ1wJfFtJizB7j5Q7kxZs9uc12XDRBc4InfT3RIwGOY7Rn0u4-6lfS8pyZw-8o2gmOuwwxgghgXieBrNd907NUHfR230uugKqZ9ityvjqqUbs7EnFnq-AZBmT7P-ciZwCjc3m8LIzdWAzcCNN5ooliHtKvXuftj0evb1bk2-3jcqGgpzXEhWiu59VPO9_iy3aw3efP"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-1 rounded bg-surface-container-lowest/95 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold shadow-sm">MỚI 100% NGUYÊN HỘP</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold shadow-sm">HỘP 20 CÂY MỰC XANH</span>
+</div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant hover:text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-1 rounded text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Sẵn 200+ hộp
+              </span>
+<span class="text-on-surface-variant font-medium">Quầy Tầng Trệt</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">THIÊN LONG VIỆT NAM</span>
+<span class="font-label-sm text-label-sm text-outline">Ngòi 0.5mm</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+                Hộp 20 Bút bi Thiên Long TL-027 Mực Xanh (Học kỳ thi cử)
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Nét chữ thanh mảnh, mực êm không tắc nét, bút chuẩn phòng thi tốt nghiệp.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-secondary font-bold">75.000đ</span>
+<span class="font-body-sm text-body-sm text-outline line-through">90.000đ</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(3.750đ/cây)</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+                  Giữ tại quầy
+                </button>
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-primary text-on-primary hover:bg-primary-container rounded font-label-md text-label-md shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+                  Thêm vào giỏ
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 6: Set File Trinh Ky & Bia Cong A4 -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden group">
+<div class="relative aspect-square w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Blue hardcover A4 presentation clipboards and binder lever arch files for university thesis defence, arranged neatly on white wooden tabletop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWmz_61AA_9UTOH6ImqpelRUgxIEYT3TUMP8FsJQQGS6bQA05PONmj__cnyPhj3pS1wICIKNnxHcz6afBbEA_LjPxweksulQ-ZuLMjrdq3GKOvQunyCoXPF274dxvxSRLwDz7HecifenCKPvXWs5so0mdVPcw9kyOJels01jFDQ1ifaFut5jA89egkc9akSo3QSVI69wphVLjZhHbe7q3G23blsHciJj7uT1ToD-hV"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-1 rounded bg-surface-container-lowest/95 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold shadow-sm">MỚI 100%</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-semibold shadow-sm">COMBO TRÌNH BÁO CÁO</span>
+</div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant hover:text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-1 rounded text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Sẵn 95 bộ
+              </span>
+<span class="text-on-surface-variant font-medium">Sảnh B</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">FILE TÀI LIỆU</span>
+<span class="font-label-sm text-label-sm text-outline">Khổ A4 Chuẩn</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+                Bộ Bìa trình ký da cao cấp &amp; Bìa lá 40 trang nộp Đồ án Chuyên ngành
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Kẹp kim loại chống gỉ, nhựa PP dày chống thấm bảo vệ đề cương bài tập lớn.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-secondary font-bold">42.000đ</span>
+<span class="font-body-sm text-body-sm text-outline line-through">55.000đ</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-error font-label-sm text-label-sm">-23%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+                  Giữ tại quầy
+                </button>
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-primary text-on-primary hover:bg-primary-container rounded font-label-md text-label-md shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+                  Thêm vào giỏ
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 7: Combo But Da Quang Pastel & Gom Pentel -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden group">
+<div class="relative aspect-square w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Set of 6 pastel aesthetic highlighter markers laid out next to a white Pentel polymer eraser on notebook study background, high angle clear studio photograph" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhweiJS5ufuLmyecZvuvNx-QxfeV496e4OKwa52NS4FS3wect97pNDu3yVDwDwYYZsJNM1oauzX8b6Uwf501YaY4yVuzvCl1At7ibchQk8wgUzB9_U6XyGHNW5L2vlbZh8VcSzy5KKI--0asE0WOP0JnZ8K7KWU8qcSGjDtp74GDbnSHZ2aekwjWO4RrUlm9rTN81mUl_cSCOZLmOZXPm5gxkzgYiUNSnG00b0x0BU"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-1 rounded bg-surface-container-lowest/95 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold shadow-sm">MỚI 100% NGUYÊN VỈ</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold shadow-sm">SET 6 CÂY PASTEL</span>
+</div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant hover:text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-1 rounded text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Sẵn 110 set
+              </span>
+<span class="text-on-surface-variant font-medium">Sảnh B</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">BÚT &amp; VIẾT</span>
+<span class="font-label-sm text-label-sm text-outline">Tone Dịu Mắt</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+                Set 6 Bút dạ quang Highlighter tông màu Pastel dịu mắt + Gôm Pentel
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Không làm thấm sang trang sau của giáo trình dày, dễ scan tài liệu.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-secondary font-bold">45.000đ</span>
+<span class="font-body-sm text-body-sm text-outline line-through">60.000đ</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-error font-label-sm text-label-sm">-25%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+                  Giữ tại quầy
+                </button>
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-primary text-on-primary hover:bg-primary-container rounded font-label-md text-label-md shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+                  Thêm vào giỏ
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 8: Bo Thuoc Eke Compa Ky Thuat -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden group">
+<div class="relative aspect-square w-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Complete professional technical drawing kit including metal precision compass, acrylic triangles, protractor, and ruler in dedicated durable plastic case" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfvUPOmhlU05KAmNNwMIYFjX6ZXkfcuK-4hbxQEyd4hz_gyHBp2MZCC98PnTSzM5UGlAfLGNG0Yh2QKj7af5emUYNw5NXNbGtmHqvUhRsX8GIWRPxj--F4baIuP8xvm8wwzWQtUkWCxTIlDrs3-DJc0KqkMbJb2qHKa9G7mpwXa37BmCBSGFfGnlPuXeIHCnP_sh0KTyFbIMjWfdvO_OZsBL5yFYn8aEPh-Hcv6D6n"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-1 rounded bg-surface-container-lowest/95 backdrop-blur-sm text-primary font-label-sm text-label-sm font-bold shadow-sm">MỚI 100% NGUYÊN HỘP</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold shadow-sm">KỸ THUẬT &amp; KIẾN TRÚC</span>
+</div>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface-variant hover:text-secondary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-1 rounded text-on-surface font-label-sm text-label-sm flex items-center justify-between">
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Sẵn 48 bộ
+              </span>
+<span class="text-on-surface-variant font-medium">Kho sảnh B</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">DỤNG CỤ HỌC TẬP</span>
+<span class="font-label-sm text-label-sm text-outline">Hộp 7 món</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2">
+                Hộp Compa kim loại và Bộ 4 thước eke kỹ thuật chống gãy Deli
+              </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Vạch đo khắc laser chống mờ, compa có ngòi chì bấm dự phòng tiện lợi.
+              </p>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-secondary font-bold">55.000đ</span>
+<span class="font-body-sm text-body-sm text-outline line-through">72.000đ</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-error font-label-sm text-label-sm">-24%</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+                  Giữ tại quầy
+                </button>
+<button class="flex items-center justify-center gap-1 py-2 px-space-xs bg-primary text-on-primary hover:bg-primary-container rounded font-label-md text-label-md shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+                  Thêm vào giỏ
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Campus Location & Service Counter Map / Pickup Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">store</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Vị trí Quầy dịch vụ StuMarket Station B</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Nằm ngay sảnh lớn Tầng Trệt Nhà B (đối diện thang máy trung tâm và phòng Quản lý Đào tạo). Bạn có thể ghé lấy đồ trực tiếp trong 5 phút giải lao giữa các tiết học.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Giờ lấy hàng trực tiếp</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">07:00 - 18:30</span>
+<span class="text-[11px] text-tertiary">Liên tục cả giờ trưa</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Hotline Quầy B</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">028 3940 8335</span>
+<span class="text-[11px] text-on-surface-variant">Nội bộ: Máy lẻ 108</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Giao phòng học/thi</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Hỏa tốc 15 phút</span>
+<span class="text-[11px] text-primary">Khu A, B, C, D</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-md bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[20px]">qr_code_scanner</span>
+<span class="font-body-sm text-body-sm text-on-surface">Xuất trình mã QR trong app StuMarket để nhận hàng giữ chỗ không cần xếp hàng.</span>
+</div>
+<button class="shrink-0 px-space-sm py-1 bg-surface-container text-on-surface font-label-sm text-label-sm rounded hover:bg-surface-container-high transition-colors font-medium">
+            Hướng dẫn nhận
+          </button>
+</div>
+</div>
+<!-- Static Map Representation -->
+<div class="lg:col-span-5 bg-surface-container rounded-xl overflow-hidden shadow-sm relative min-h-[260px]">
+<div class="w-full h-full min-h-[260px] bg-cover bg-center" data-location="Nguyen Tat Thanh University Campus District 4 Ho Chi Minh City" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGxnhLmDT6nOSrzeJiOjMm8n5-RZpM3549_mARn7MM6VEQJQkRG12XwSzOXYmyZX9zz8Uy_VexTNffYVzQ0xYsgVWk2SEp_hpo_NnRxXko_ZdhiXOLPEmH8xIgGQiVcBsBoQ4cqVYg7BrZBE8NuYHZ7X3O61SeWzat2o6O3S89kLuIkY5hj1j2jlm3ATGcloA-T2gEjao_25w3khH7658-VYz72IBsvLtMGbfb3vey')"></div>
+<div class="absolute bottom-3 left-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md p-space-sm rounded-lg shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">location_on</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">NTTU Khu B - 300A Nguyễn Tất Thành</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Phường 13, Quận 4, TP. Hồ Chí Minh</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Mở chỉ đường</span>
+</div>
+</div>
+</div>
+<!-- Official Merchant Policies Banner -->
+<div class="bg-surface-container-high rounded-xl p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Cam kết Cửa hàng Sinh viên NTTU Station</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mọi mặt hàng văn phòng phẩm &amp; thiết bị học cụ đều có nguồn gốc rõ ràng, bảo vệ quyền lợi người học theo tiêu chuẩn Đại học.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-space-md py-2 bg-surface-container-lowest text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-bright transition-colors shadow-sm">
+          Xem chính sách đổi trả
+        </button>
+<button class="px-space-md py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+          Đăng ký đối tác mới
+        </button>
+</div>
+</div>
+</div>
+<!-- Interactive Quick Order Drawer Trigger Notification (Vanilla JS micro-interaction) -->
+<div class="fixed bottom-6 right-6 z-40 bg-on-surface text-surface-container-lowest px-space-md py- space-sm py-2.5 rounded-xl shadow-xl flex items-center gap-3 transition-all duration-300 translate-y-24 opacity-0 pointer-events-none" id="quickOrderToast">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">check_circle</span>
+<span class="font-body-sm text-body-sm font-medium" id="toastMessage">Đã thêm sản phẩm vào danh sách giữ chỗ tại quầy!</span>
+<a class="underline text-primary-fixed-dim font-label-sm text-label-sm ml-2" data-path="gio-hang-cua-ban" href="#">Xem giỏ hàng</a>
+</div>
+<script>
+    // Micro-interaction for Cart & Reservation buttons
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.innerText.includes('Thêm vào giỏ') || btn.innerText.includes('Giữ tại quầy')) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const toast = document.getElementById('quickOrderToast');
+          const toastMsg = document.getElementById('toastMessage');
+          if (btn.innerText.includes('Giữ tại quầy')) {
+            toastMsg.innerText = 'Đã đặt giữ chỗ tại Quầy Tầng Trệt Nhà B thành công!';
+          } else {
+            toastMsg.innerText = 'Đã thêm dụng cụ chính hãng vào giỏ đồ sinh viên!';
+          }
+          toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+          setTimeout(() => {
+            toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+          }, 3500);
+        });
+      }
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-low mt-space-xl pt-space-xl pb-space-lg"><div class="max-w-7xl mx-auto px-margin"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-lg pb-space-xl"><div class="flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs mb-space-xs"><img alt="StuMarket Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCEK88J4hRPmOHioRjLUZyFyRc3j9R38C8iRd8ES-npftexsuVQP_jDEj808-VEzn-S1neE0v1XAzLlWjr7ti2-aV-c0fzgUIdBKQeUyCDeNq5eMKTS-tlOkya3t5t2fDgbwJlzBmIWAeU3BYu9py26P_S1fQ_eVbDm5K_9igr5nHCnp_aE7JOJkX_dBPy55cA6U7l3mJ_91WkNJXGk0lA9p93gf3iSyqKOqrCTstzN"/><span class="font-headline-sm text-headline-sm text-primary">StuMarket NTTU</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Sàn thương mại nội bộ Đại học Nguyễn Tất Thành. Khuyến khích tái sử dụng giáo trình và kết nối văn phòng phẩm giá sinh viên.</p></div><div class="flex flex-col gap-space-xs"><h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Sinh viên NTTU</h4><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="trang-chu" href="#">Sàn giáo trình &amp; tài liệu</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dang-tin-ban-do" href="#">Đăng tin bán thanh lý</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="quy-trinh-hoat-dong" href="#">Cẩm nang trao đổi an toàn</a></div><div class="flex flex-col gap-space-xs"><h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Đối tác &amp; Cửa hàng</h4><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="cua-hang-van-phong-pham" href="#">Văn phòng phẩm liên kết</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Đăng ký gian hàng sinh viên</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Ưu đãi đồng phục &amp; học cụ</a></div><div class="flex flex-col gap-space-xs"><h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Quy định &amp; An toàn</h4><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Quy định kiểm duyệt sinh viên</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Hướng dẫn an toàn giao dịch</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Báo cáo tin đăng giả mạo</a></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><p>© 2025 StuMarket NTTU - Đại học Nguyễn Tất Thành. All rights reserved.</p><p>Hệ thống giao dịch nội bộ sinh viên bảo vệ bởi NTTU Student ID.</p></div></div></footer></body></html>

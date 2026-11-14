@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>StuMarket - NTTU Campus Marketplace</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-container": "#fd651e", "surface-container": "#eaedff", "surface-bright": "#faf8ff", "tertiary-container": "#007d55", "background": "#faf8ff", "on-primary-fixed": "#00174b", "outline": "#737686", "secondary-fixed": "#ffdbce", "surface": "#faf8ff", "primary-fixed-dim": "#b4c5ff", "on-background": "#131b2e", "surface-container-lowest": "#ffffff", "secondary-fixed-dim": "#ffb599", "outline-variant": "#c3c6d7", "inverse-on-surface": "#eef0ff", "on-secondary": "#ffffff", "on-error": "#ffffff", "primary-fixed": "#dbe1ff", "secondary": "#a73a00", "on-tertiary": "#ffffff", "on-secondary-fixed": "#370e00", "surface-container-highest": "#dae2fd", "on-tertiary-fixed": "#002113", "primary": "#004ac6", "surface-variant": "#dae2fd", "surface-tint": "#0053db", "error-container": "#ffdad6", "tertiary-fixed": "#6ffbbe", "tertiary": "#006242", "on-tertiary-fixed-variant": "#005236", "on-surface-variant": "#434655", "on-secondary-container": "#571a00", "on-tertiary-container": "#bdffdb", "surface-container-high": "#e2e7ff", "inverse-primary": "#b4c5ff", "surface-container-low": "#f2f3ff", "on-surface": "#131b2e", "on-error-container": "#93000a", "on-primary-fixed-variant": "#003ea8", "on-primary": "#ffffff", "surface-dim": "#d2d9f4", "on-secondary-fixed-variant": "#7f2b00", "inverse-surface": "#283044", "tertiary-fixed-dim": "#4edea3", "primary-container": "#2563eb", "error": "#ba1a1a", "on-primary-container": "#eeefff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "margin": "1rem", "gutter": "1rem", "space-md": "1rem" }, "fontFamily": { "body-sm": ["Inter"], "body-lg": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Inter"], "label-md": ["Inter"], "label-lg": ["Inter"], "headline-xl-mobile": ["Inter"], "headline-sm": ["Inter"], "headline-xl": ["Inter"], "headline-md": ["Inter"], "headline-lg-mobile": ["Inter"], "body-md": ["Inter"] }, "fontSize": { "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "600"}], "headline-lg": ["30px", {"lineHeight": "38px", "fontWeight": "700"}], "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}], "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}], "headline-xl-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}], "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}], "headline-xl": ["36px", {"lineHeight": "44px", "fontWeight": "700"}], "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}], "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-primary-fixed text-on-primary-fixed py-1.5 px-margin"><div class="max-w-7xl mx-auto flex items-center justify-center gap-space-xs text-center"><span class="material-symbols-outlined text-primary text-[18px]">verified_user</span><p class="font-label-sm text-label-sm">Mẹo an toàn: Giao dịch trực tiếp tại sảnh thư viện hoặc căn tin trường để kiểm tra giáo trình trước khi thanh toán</p></div></div><div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><img alt="StuMarket Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCEK88J4hRPmOHioRjLUZyFyRc3j9R38C8iRd8ES-npftexsuVQP_jDEj808-VEzn-S1neE0v1XAzLlWjr7ti2-aV-c0fzgUIdBKQeUyCDeNq5eMKTS-tlOkya3t5t2fDgbwJlzBmIWAeU3BYu9py26P_S1fQ_eVbDm5K_9igr5nHCnp_aE7JOJkX_dBPy55cA6U7l3mJ_91WkNJXGk0lA9p93gf3iSyqKOqrCTstzN"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">StuMarket</span><span class="font-label-sm text-label-sm text-on-surface-variant">NTTU Campus Commerce</span></div></div><div class="flex-1 max-w-2xl hidden lg:flex items-center bg-surface-container-low rounded-lg p-1"><div class="relative flex items-center pl-space-sm pr-space-xs"><span class="material-symbols-outlined text-primary text-[18px] mr-1.5">apartment</span><select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none cursor-pointer pr-space-xs"><option value="all">Tất cả cơ sở</option><option value="q4">Cơ sở Quận 4</option><option value="q12">Cơ sở Quận 12</option><option value="q7">Cơ sở Quận 7</option><option value="apd">Cơ sở An Phú Đông</option></select></div><div class="w-[1px] h-6 bg-outline-variant shrink-0 mx-1"></div><div class="relative flex-1 flex items-center pl-space-xs pr-space-sm"><span class="material-symbols-outlined text-outline text-[20px] mr-2">search</span><input class="w-full bg-transparent font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" placeholder="Tìm giáo trình, máy tính Casio, văn phòng phẩm, tài liệu ôn thi..." type="text"/></div></div><div class="flex items-center gap-space-md shrink-0"><div class="hidden xl:flex items-center gap-space-sm bg-surface-container-low px-space-sm py-1.5 rounded-full"><span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span><div class="flex flex-col text-left"><div class="flex items-center gap-1"><span class="font-label-md text-label-md text-on-surface font-semibold">Nguyễn Minh Tuấn</span><span class="font-label-sm text-label-sm text-tertiary font-bold">• Đã xác minh</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">MSSV 210001234 - Khoa CNTT</span></div></div><div class="flex items-center gap-space-xs"><a class="p-2 text-on-surface-variant hover:text-primary transition-colors relative flex items-center justify-center" data-path="tin-nhan-thuong-luong" href="#"><span class="material-symbols-outlined text-[22px]">chat_bubble</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary-container"></span></a><a class="p-2 text-on-surface-variant hover:text-primary transition-colors relative flex items-center justify-center" data-path="gio-hang-cua-ban" href="#"><span class="material-symbols-outlined text-[22px]">shopping_bag</span></a></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNUylALvheEov8KGKI_byemQ-pkHuq7Ti-X7zCpMbdi8P3bT0-LmFNXd_Y--yeb2LdbFy4rfdfJw9Ox9RMP-EBufhUXRkOBIlV-fhOJgUREutMLxFUuzRrUB58xdivqN-N3-2nMctY-1Rr7LfKiluRrpPaKfVAnWqm4zChMFnxnauilzHiEXmApnTIyMVwgxpZR_vMxw92guuL80XMSc4E9S2D6R96y9pxZg6yLkbN"/></div></div><div class="bg-surface-container-lowest shadow-[0_1px_2px_rgba(0,0,0,0.03)] hidden md:block"><div class="max-w-7xl mx-auto px-margin"><nav class="flex items-center gap-space-lg h-11" data-active-classes="text-primary font-bold border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-2.5" data-path="trang-chu" href="#">Trang chủ</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-2.5" data-path="quy-trinh-hoat-dong" href="#">Quy trình hoạt động</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-2.5" data-path="cua-hang-van-phong-pham" href="#">Cửa hàng văn phòng phẩm</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-2.5" data-path="tin-nhan-thuong-luong" href="#">Tin nhắn &amp; Thương lượng</a><a aria-current="page" class="ml-auto bg-primary hover:bg-primary-container px-space-md py-1.5 rounded-lg transition-colors flex items-center gap-1.5 shadow-sm text-primary font-bold border-b-2 border-primary" data-path="dang-tin-ban-do" href="#"><span class="material-symbols-outlined text-[18px]">add_circle</span>Đăng tin bán đồ</a></nav></div></div></header><main class="w-full pt-[156px] min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Verification & Welcome Top Banner -->
+<div class="w-full bg-gradient-to-r from-primary-fixed to-surface-container-high py-space-sm px-margin">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div>
+<span class="font-label-lg text-label-lg text-on-primary-fixed">Đăng bán dễ dàng trong 2 phút - Tiếp cận hơn 30.000 sinh viên NTTU cùng cơ sở</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block md:inline md:ml-2">Hệ thống bảo vệ giao dịch nội bộ trường</span>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-sm px-space-sm py-1 rounded-full shadow-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Nguyễn Minh Tuấn (MSSV: 210001234)</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold bg-surface-container-low px-1.5 py-0.5 rounded-full">Đã xác thực NTTU</span>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto w-full px-margin py-space-md">
+<!-- Stepper Navigation -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-lg">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm relative">
+<!-- Step 1: Active -->
+<div class="flex items-center gap-space-sm bg-primary/10 rounded-lg p-2.5">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-lg text-label-lg shrink-0 shadow-sm">
+            1
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-primary font-bold truncate">Bước 1: Thông tin cơ bản</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Đang thực hiện</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-space-sm bg-surface-container-low rounded-lg p-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-lg text-label-lg shrink-0">
+            2
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Bước 2: Tải ảnh &amp; Tình trạng</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Chi tiết sản phẩm</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-center gap-space-sm bg-surface-container-low rounded-lg p-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-lg text-label-lg shrink-0">
+            3
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Bước 3: Định giá &amp; Điểm hẹn</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Chọn campus giao lưu</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex items-center gap-space-sm bg-surface-container-low rounded-lg p-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-lg text-label-lg shrink-0">
+            4
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Bước 4: Xem trước &amp; Đăng</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Lên sàn ngay lập tức</span>
+</div>
+</div>
+</div>
+<!-- Campus Selling Milestones Bar -->
+<div class="mt-space-md pt-space-sm flex items-center justify-between overflow-x-auto text-on-surface-variant gap-4 bg-surface-container-low/50 px-3 py-2 rounded-lg">
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-primary text-[18px]">badge</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">1. Đăng nhập MSSV</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">arrow_forward</span>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-primary text-[18px]">add_a_photo</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">2. Thêm ảnh &amp; mô tả</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">arrow_forward</span>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">payments</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">3. Đặt giá bán</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">arrow_forward</span>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">forum</span>
+<span class="font-label-sm text-label-sm">4. Nhận chat deal giá</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-outline-variant">arrow_forward</span>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[18px]">handshake</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">5. Gặp tại sảnh thư viện</span>
+</div>
+</div>
+</div>
+<!-- Main Two-Column Work Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Form Controls (7 Cols) -->
+<form class="lg:col-span-7 flex flex-col gap-space-md" id="sellListingForm" onsubmit="event.preventDefault();">
+<!-- Section 1: Basic Information -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-2 mb-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">book_2</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">1. Thông tin giáo trình / Sản phẩm</h2>
+</div>
+<div class="flex flex-col gap-space-md">
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-1" for="productTitle">
+                Tên bài đăng / Tựa sách giáo trình <span class="text-error">*</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low rounded-lg px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest shadow-sm" id="productTitle" oninput="updateLivePreview()" placeholder="Ví dụ: Giáo trình Pháp luật đại cương, Máy tính fx-580VN..." type="text" value="Giáo trình Marketing Căn Bản (Đã học xong kỳ 1)"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Nên ghi rõ tên môn, năm xuất bản hoặc tình trạng để bạn học dễ tìm thấy.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-1" for="productCategory">
+                  Danh mục chính <span class="text-error">*</span>
+</label>
+<div class="bg-surface-container-low rounded-lg px-space-sm py-2 flex items-center justify-between">
+<select class="w-full bg-transparent font-body-md text-body-md text-on-surface focus:outline-none cursor-pointer" id="productCategory">
+<option selected="" value="sach-giao-trinh">Sách &amp; Giáo trình chuyên ngành</option>
+<option value="do-dung-hoc-tap">Dụng cụ &amp; Máy tính kỹ thuật</option>
+<option value="tai-lieu-on-thi">Đề cương &amp; Tài liệu photo</option>
+<option value="dong-phuc-nttu">Đồng phục NTTU &amp; Thể thao</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-1" for="productSubFaculty">
+                  Khoa / Ngành học
+                </label>
+<div class="bg-surface-container-low rounded-lg px-space-sm py-2 flex items-center justify-between">
+<select class="w-full bg-transparent font-body-md text-body-md text-on-surface focus:outline-none cursor-pointer" id="productSubFaculty" onchange="updateLivePreview()">
+<option selected="" value="Khoa Quản Trị Kinh Doanh">Khoa Quản Trị Kinh Doanh</option>
+<option value="Khoa Công Nghệ Thông Tin">Khoa Công Nghệ Thông Tin</option>
+<option value="Khoa Dược">Khoa Dược</option>
+<option value="Khoa Ngoại Ngữ">Khoa Ngoại Ngữ</option>
+<option value="Khoa Kỹ Thuật Ô Tô">Khoa Kỹ Thuật - Cơ Khí</option>
+<option value="Đại cương chung">Khối kiến thức đại cương</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Upload Images -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">photo_library</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">2. Hình ảnh thực tế (3-5 ảnh)</h2>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-surface-container-high px-2 py-0.5 rounded-full">Ảnh chụp thật tăng 80% cơ hội bán nhanh</span>
+</div>
+<!-- Drag and drop zone -->
+<div class="p-space-md bg-surface-container-low rounded-xl flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed mb-2">
+<span class="material-symbols-outlined text-[26px]">cloud_upload</span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface">Kéo thả ảnh sách vào đây hoặc <span class="text-primary font-bold underline">duyệt từ điện thoại / máy tính</span></p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Đề xuất: Chụp rõ bìa trước, trang mục lục, và các trang có ghi chú/highlight</p>
+</div>
+<!-- Previews of selected photos -->
+<div class="grid grid-cols-3 gap-space-sm mt-space-sm">
+<div class="relative group rounded-lg overflow-hidden bg-surface-container aspect-square shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Close up photograph of a clean Principles of Marketing textbook textbook cover with NTTU university notebook on a study desk under natural morning library lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7GezsLdAI_hAHCFeaziwsscSyh6SGJ-EaqdlIywWR5vnEGz_ymIElj4hWhrpdZgV_6gM7LsuGIb8iElXNEAB5XsF8jOZg15QCyBOKQwnruuBrSAr-VJFP9ovbyz9QBFTAr5a9gAnzNOn6K-wMK1ZsFnTuA63xPuOpgFW5TM8bkWMNlhbKgduscXKOjGQ8iCgqS4JGwIFrYfuojtNUXsWdcCASoe8KKooItzI75Lcm"/>
+<span class="absolute bottom-1 left-1 bg-on-background/70 text-surface font-label-sm text-label-sm px-1.5 py-0.5 rounded">Bìa trước</span>
+<button class="absolute top-1 right-1 w-6 h-6 rounded-full bg-surface-container-lowest/80 text-error flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="relative group rounded-lg overflow-hidden bg-surface-container aspect-square shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Interior pages of marketing college textbook showing clear yellow fluorescent highlighter on headings and neat margin student notes in blue pen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe0OEvH5GORGTQW7EWmeu_W7DTmYVWjUEjiBiRc9MRo_HKYJn8EgzvyRlaCbG7nVsLV4Z3peAf1AdOiL5U1pkZySjC6ZuFd4wrC5vjD9krDHyLtwgY8IqaSFk_MVdeVkhsI9kL2bSZrwBr_sN8fg5Hi2lgSrePDS4qu504hSyLpHZRhpg4udy3mKxdoMXhe9nZ18GgSaxKJPIwX9Vp3h_pIp4C2fkkoix7s88ZLREG"/>
+<span class="absolute bottom-1 left-1 bg-on-background/70 text-surface font-label-sm text-label-sm px-1.5 py-0.5 rounded">Trang highlight</span>
+<button class="absolute top-1 right-1 w-6 h-6 rounded-full bg-surface-container-lowest/80 text-error flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="relative group rounded-lg overflow-hidden bg-surface-container aspect-square shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Stack of bundled exam study summaries, past test questions papers with student binder clips beside the textbook on wooden campus desk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3vsIn8Ihnm7tNQzWqqxA2Ko4AKmoJ49QKHbIbBGscWROhlb4AnnFQmLExr32nfx-4Ry8ML0vBuuqX7kmQmNyrZpc7MHwJQrOZQOUUzI4keW1xCpDN62FATqqy3hsiN7LN5BFXEONyYQszdSeBo1PKmWvoFLHoMC9QG7-Xqs7CuOTqNU0oXKhyQZPybfOROnQgolFKG-aRitLY5UZ_I8ZrICSJ9jiQ8PtLBcVoWtT_"/>
+<span class="absolute bottom-1 left-1 bg-on-background/70 text-surface font-label-sm text-label-sm px-1.5 py-0.5 rounded">Tặng kèm đề cương</span>
+<button class="absolute top-1 right-1 w-6 h-6 rounded-full bg-surface-container-lowest/80 text-error flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section 3: Condition Selection -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-2 mb-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">fact_check</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">3. Tình trạng thực tế của sản phẩm</h2>
+</div>
+<div class="flex flex-col gap-2.5" id="conditionRadioGroup">
+<!-- Option 1 -->
+<label class="flex items-start gap-space-sm p-3 rounded-lg cursor-pointer bg-surface-container-low hover:bg-surface-container transition-colors">
+<input class="mt-1 text-primary focus:ring-0 cursor-pointer" name="conditionOption" onchange="updateLivePreview()" type="radio" value="Mới 99%"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface">Mới 99% (Như sách mới)</span>
+<span class="font-label-sm text-label-sm text-tertiary bg-surface-container-high px-1.5 py-0.5 rounded">Gần như nguyên seal</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Chưa dùng hoặc chỉ mở xem vài lần trong học kỳ, không quăn góc bìa.</span>
+</div>
+</label>
+<!-- Option 2: Active / Default selected -->
+<label class="flex items-start gap-space-sm p-3 rounded-lg cursor-pointer bg-primary-fixed/20 shadow-sm">
+<input checked="" class="mt-1 text-primary focus:ring-0 cursor-pointer" name="conditionOption" onchange="updateLivePreview()" type="radio" value="Đã qua sử dụng - Mới 90%"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-primary font-bold">Đã qua sử dụng - Mới 90% (Có highlight hữu ích)</span>
+<span class="font-label-sm text-label-sm text-secondary-container bg-surface-container-lowest font-bold px-1.5 py-0.5 rounded shadow-sm">Khuyên dùng cho thi cử</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Giấy sạch đẹp, có highlight trọng tâm bài giảng và ghi chép tóm tắt hữu ích của giảng viên.</span>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="flex items-start gap-space-sm p-3 rounded-lg cursor-pointer bg-surface-container-low hover:bg-surface-container transition-colors">
+<input class="mt-1 text-primary focus:ring-0 cursor-pointer" name="conditionOption" onchange="updateLivePreview()" type="radio" value="Đã qua sử dụng - Bình thường"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface">Đã qua sử dụng - Bình thường (Mới 75-80%)</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Có vết nhăn nhẹ ở mép sách hoặc gáy sách hơi sờn do mang balo, nội dung đầy đủ không mất trang.</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Section 4: Price & Campus Meetup -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-2 mb-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">sell</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">4. Thiết lập giá bán &amp; Điểm hẹn tại Campus</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-lg text-label-lg text-on-surface mb-1" for="priceInput">
+                Giá muốn bán (VNĐ) <span class="text-error">*</span>
+</label>
+<div class="relative flex items-center bg-surface-container-low rounded-lg px-space-sm py-2">
+<input class="w-full bg-transparent font-headline-md text-headline-md text-secondary font-bold focus:outline-none" id="priceInput" oninput="updateLivePreview()" type="text" value="50.000"/>
+<span class="font-label-lg text-label-lg text-on-surface-variant font-bold">VNĐ</span>
+</div>
+<!-- Recommendation badge -->
+<div class="mt-space-xs p-2.5 rounded-lg bg-surface-container-high/60 flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px] shrink-0 mt-0.5">insights</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Mức giá trung bình của giáo trình này là <span class="font-semibold text-on-surface">45.000đ - 60.000đ</span>. Giá của bạn <span class="text-tertiary font-bold">rất cạnh tranh!</span>
+</p>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<input checked="" class="w-4 h-4 text-primary rounded cursor-pointer" id="negotiableCheck" onchange="updateLivePreview()" type="checkbox"/>
+<label class="font-body-md text-body-md text-on-surface cursor-pointer select-none" for="negotiableCheck">
+                  Cho phép người mua thương lượng nhẹ khi nhận trực tiếp
+                </label>
+</div>
+</div>
+<!-- Campus Drop-off points -->
+<div class="flex flex-col">
+<label class="block font-label-lg text-label-lg text-on-surface mb-1">
+                Điểm hẹn giao dịch ưu tiên trong trường
+              </label>
+<div class="flex flex-col gap-2 bg-surface-container-low p-space-sm rounded-lg">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 text-primary rounded cursor-pointer" id="locQ4" onchange="updateLivePreview()" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface font-medium">Cơ sở Quận 4 (300A Nguyễn Tất Thành)</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 text-primary rounded cursor-pointer" id="locLib" onchange="updateLivePreview()" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface font-medium">Thư viện / Sảnh A (Quận 4 &amp; Q7)</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 text-primary rounded cursor-pointer" id="locQ12" onchange="updateLivePreview()" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant">Cơ sở Quận 12 (An Phú Đông)</span>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+                Gặp tại sảnh trường được hỗ trợ quầy kiểm tra an toàn NTTU.
+              </p>
+</div>
+</div>
+</div>
+<!-- Section 5: Experience note & description -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-2 mb-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">description</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">5. Mô tả chi tiết &amp; Chia sẻ mẹo qua môn</h2>
+</div>
+<div>
+<textarea class="w-full bg-surface-container-low rounded-lg p-space-sm font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest shadow-sm leading-relaxed" id="descTextarea" oninput="updateLivePreview()" rows="4">Mình đã qua môn A+ nhờ giáo trình này, tặng kèm tóm tắt công thức và đề thi thử các năm trước cho bạn nào nhiệt tình. Mình học ca sáng thứ 3 và thứ 5 ở sảnh A cơ sở Quận 4, bạn nào lấy nhắn mình mang theo nhé!</textarea>
+<div class="flex items-center justify-between mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span>Được chia sẻ tự do thông tin hỗ trợ bạn học cùng NTTU.</span>
+<span id="charCounter">230 ký tự</span>
+</div>
+</div>
+</div>
+</form>
+<!-- Right Column: Live Sticky Card Preview (5 Cols) -->
+<aside class="lg:col-span-5 flex flex-col gap-space-md lg:sticky lg:top-[170px]">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container-high mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">visibility</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Xem trước bài đăng</h3>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded-full text-on-surface-variant">Hiển thị trên Trang chủ</span>
+</div>
+<!-- The Live Simulated Product Card -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm transition-all hover:shadow-md">
+<!-- Image Frame -->
+<div class="relative w-full aspect-[4/3] bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Educational college textbook Principles of Marketing laid on library wooden table next to glasses and a highlighter, NTTU campus atmosphere." id="previewMainImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRWwv-VDUYccaQlu-jyHxuqGRUQ_GS5CLvAOCLmtOLfRylgz77HToMD6oxbIbIBRPIc4AkiliQdFfguwn2RZXMgSLkV1nFJJgm52T9XpQfXaQKnpk1anZ7A6RQZYw3xj2r6aTaw5veUzjgylXYkc7SHnvYKFV3rtyF6pYirH7OB0DDTmYVZK5Lc4y0PCuaGsViWXTkUseRaCXGsgEyuYaWKgd-A5VNd2iUwO2YFBBj"/>
+<!-- Floating Badges -->
+<div class="absolute top-2 left-2 flex flex-col gap-1 items-start">
+<span class="bg-surface-container-lowest/95 backdrop-blur-sm text-on-surface font-label-sm text-label-sm px-2 py-1 rounded-full font-bold shadow-sm flex items-center gap-1" id="previewConditionBadge">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                  Đã qua sử dụng - Mới 90%
+                </span>
+<span class="bg-tertiary text-on-tertiary font-label-sm text-label-sm px-2 py-0.5 rounded-full shadow-sm">
+                  + Tặng tài liệu ôn thi
+                </span>
+</div>
+<div class="absolute top-2 right-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite_border</span>
+</div>
+</div>
+<!-- Negotiable Tag Overlay -->
+<div class="absolute bottom-2 left-2 bg-on-background/80 backdrop-blur-sm text-surface font-label-sm text-label-sm px-2 py-0.5 rounded" id="previewNegoTag">
+                Có thể thương lượng nhẹ
+              </div>
+</div>
+<!-- Card Body Content -->
+<div class="p-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="truncate font-semibold text-primary" id="previewFaculty">Khoa Quản Trị Kinh Doanh</span>
+<span class="shrink-0 flex items-center gap-0.5 text-secondary">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Vừa cập nhật
+                </span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface line-clamp-2 leading-snug" id="previewTitle">
+                Giáo trình Marketing Căn Bản (Đã học xong kỳ 1)
+              </h4>
+<!-- Price row -->
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-lg text-headline-lg text-secondary font-bold" id="previewPrice">50.000đ</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">115.000đ gốc</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold ml-auto bg-surface-container-high px-1.5 py-0.5 rounded">Tiết kiệm 56%</span>
+</div>
+<!-- Campus and Seller badges -->
+<div class="pt-2 mt-1 flex flex-col gap-2">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+<span class="truncate font-medium text-on-surface" id="previewLocations">Cơ sở Quận 4 • Thư viện / Sảnh A</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low p-2 rounded-lg">
+<div class="flex items-center gap-2 min-w-0">
+<img class="w-7 h-7 rounded-full object-cover shrink-0" data-alt="Portrait avatar of a friendly Vietnamese college male student wearing NTTU university lanyard badge smiling politely." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCajFXsZqZ9Nm-Jdc7zpIuh6WzIu6CsbQ1WVBv-lpy94St72lpwWvhqiUZe7fAU7vPQznC2YfdhM7FvY3X_zT8Rb0VM26XOImMFd5DqZwx7mfYTLpwrCiSSDua8CdwoKWdxdecW7iKnYByobBWvfzFxEVIbN2VZ_OzXbcVljqksc927dbMP_r_wi4G5uEQjTSoZ-CLQeUtW_bb4mcs7FRHAzZ7Hgzr_16mUXXTE4AHv"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface font-bold truncate">Nguyễn Minh Tuấn</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">verified</span> NTTU ID
+                      </span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0">Đã bán: 8 cuốn</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Safety Tips Callout -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">health_and_safety</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Chính sách trao đổi học đường</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Chỉ trao đổi tài liệu học tập, giáo trình hợp lệ của Đại học Nguyễn Tất Thành. Tuyệt đối không giao dịch ngoài khuôn viên trường đối với người lạ.
+              </p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- Sticky Bottom Action Bar -->
+<div class="sticky bottom-4 z-40 mt-space-xl bg-surface-container-lowest/95 backdrop-blur-md p-space-md rounded-xl shadow-xl flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<span class="w-3 h-3 rounded-full bg-tertiary shrink-0 animate-ping"></span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">Trạng thái: Bản nháp đã tự động lưu</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Lưu lần cuối cách đây vài giây</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+<button class="flex-1 sm:flex-none px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-colors flex items-center justify-center gap-1.5" id="btnSaveDraft" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+          Lưu nháp
+        </button>
+<button class="flex-1 sm:flex-none px-space-md py-2.5 rounded-lg bg-surface-container-low text-on-surface font-label-lg text-label-lg hover:bg-surface-container transition-colors flex items-center justify-center gap-1.5" id="btnPreviewPopup" type="button">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+          Xem trang chi tiết
+        </button>
+<button class="flex-1 sm:flex-none px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg" id="btnPublishListing" type="button">
+<span class="material-symbols-outlined text-[20px]">publish</span>
+          Đăng sản phẩm ngay (Miễn phí)
+        </button>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-24 right-6 z-50 transform translate-y-8 opacity-0 pointer-events-none transition-all duration-300 bg-on-background text-surface px-4 py-3 rounded-lg shadow-xl flex items-center gap-3" id="toastNotification">
+<span class="material-symbols-outlined text-tertiary-fixed text-[24px]">task_alt</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold" id="toastTitle">Thành công!</span>
+<span class="font-body-sm text-body-sm text-outline-variant" id="toastSubtitle">Bài đăng của bạn đã được xuất bản trên StuMarket.</span>
+</div>
+</div>
+</div>
+<script>
+  function updateLivePreview() {
+    const title = document.getElementById('productTitle').value;
+    const price = document.getElementById('priceInput').value;
+    const faculty = document.getElementById('productSubFaculty').value;
+    const desc = document.getElementById('descTextarea').value;
+    const isNego = document.getElementById('negotiableCheck').checked;
+    
+    // Conditions
+    const selectedCondition = document.querySelector('input[name="conditionOption"]:checked');
+    const conditionText = selectedCondition ? selectedCondition.value : 'Đã qua sử dụng - Mới 90%';
+
+    // Campuses
+    const q4 = document.getElementById('locQ4').checked;
+    const lib = document.getElementById('locLib').checked;
+    const q12 = document.getElementById('locQ12').checked;
+
+    let locs = [];
+    if (q4) locs.push('Cơ sở Quận 4');
+    if (lib) locs.push('Thư viện/Sảnh A');
+    if (q12) locs.push('Cơ sở Q12');
+    if (locs.length === 0) locs.push('Thỏa thuận sau');
+
+    // Update targets
+    const prevTitle = document.getElementById('previewTitle');
+    const prevPrice = document.getElementById('previewPrice');
+    const prevFaculty = document.getElementById('previewFaculty');
+    const prevCondition = document.getElementById('previewConditionBadge');
+    const prevNego = document.getElementById('previewNegoTag');
+    const prevLocs = document.getElementById('previewLocations');
+    const charCounter = document.getElementById('charCounter');
+
+    if (prevTitle) prevTitle.textContent = title || 'Chưa nhập tiêu đề giáo trình';
+    if (prevPrice) prevPrice.textContent = (price ? price : '0') + (price.includes('đ') ? '' : 'đ');
+    if (prevFaculty) prevFaculty.textContent = faculty;
+    if (prevCondition) {
+      prevCondition.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>' + conditionText;
+    }
+    if (prevNego) {
+      prevNego.style.display = isNego ? 'block' : 'none';
+    }
+    if (prevLocs) {
+      prevLocs.textContent = locs.join(' • ');
+    }
+    if (charCounter) {
+      charCounter.textContent = desc.length + ' ký tự';
+    }
+  }
+
+  function showToast(title, subtitle) {
+    const toast = document.getElementById('toastNotification');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastSubtitle = document.getElementById('toastSubtitle');
+    if (!toast) return;
+
+    if (title) toastTitle.textContent = title;
+    if (subtitle) toastSubtitle.textContent = subtitle;
+
+    toast.classList.remove('translate-y-8', 'opacity-0', 'pointer-events-none');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    setTimeout(() => {
+      toast.classList.add('translate-y-8', 'opacity-0', 'pointer-events-none');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }, 3800);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    updateLivePreview();
+
+    const btnPublish = document.getElementById('btnPublishListing');
+    if (btnPublish) {
+      btnPublish.addEventListener('click', () => {
+        showToast('Tin đăng đã lên sàn!', 'Hơn 30.000 sinh viên NTTU đã có thể tìm thấy giáo trình của bạn.');
+      });
+    }
+
+    const btnDraft = document.getElementById('btnSaveDraft');
+    if (btnDraft) {
+      btnDraft.addEventListener('click', () => {
+        showToast('Đã lưu bản nháp', 'Bạn có thể tiếp tục chỉnh sửa bất kỳ lúc nào từ hồ sơ cá nhân.');
+      });
+    }
+
+    const btnPreview = document.getElementById('btnPreviewPopup');
+    if (btnPreview) {
+      btnPreview.addEventListener('click', () => {
+        showToast('Chế độ xem trước', 'Đang cập nhật trực tiếp theo thông tin bạn chỉnh sửa trên biểu mẫu.');
+      });
+    }
+  });
+</script></main><footer class="w-full bg-surface-container-low mt-space-xl pt-space-xl pb-space-lg"><div class="max-w-7xl mx-auto px-margin"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-lg pb-space-xl"><div class="flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs mb-space-xs"><img alt="StuMarket Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrCEK88J4hRPmOHioRjLUZyFyRc3j9R38C8iRd8ES-npftexsuVQP_jDEj808-VEzn-S1neE0v1XAzLlWjr7ti2-aV-c0fzgUIdBKQeUyCDeNq5eMKTS-tlOkya3t5t2fDgbwJlzBmIWAeU3BYu9py26P_S1fQ_eVbDm5K_9igr5nHCnp_aE7JOJkX_dBPy55cA6U7l3mJ_91WkNJXGk0lA9p93gf3iSyqKOqrCTstzN"/><span class="font-headline-sm text-headline-sm text-primary">StuMarket NTTU</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Sàn thương mại nội bộ Đại học Nguyễn Tất Thành. Khuyến khích tái sử dụng giáo trình và kết nối văn phòng phẩm giá sinh viên.</p></div><div class="flex flex-col gap-space-xs"><h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Sinh viên NTTU</h4><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="trang-chu" href="#">Sàn giáo trình &amp; tài liệu</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="dang-tin-ban-do" href="#">Đăng tin bán thanh lý</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="quy-trinh-hoat-dong" href="#">Cẩm nang trao đổi an toàn</a></div><div class="flex flex-col gap-space-xs"><h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Đối tác &amp; Cửa hàng</h4><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="cua-hang-van-phong-pham" href="#">Văn phòng phẩm liên kết</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Đăng ký gian hàng sinh viên</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Ưu đãi đồng phục &amp; học cụ</a></div><div class="flex flex-col gap-space-xs"><h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Quy định &amp; An toàn</h4><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Quy định kiểm duyệt sinh viên</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Hướng dẫn an toàn giao dịch</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Báo cáo tin đăng giả mạo</a></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><p>© 2025 StuMarket NTTU - Đại học Nguyễn Tất Thành. All rights reserved.</p><p>Hệ thống giao dịch nội bộ sinh viên bảo vệ bởi NTTU Student ID.</p></div></div></footer></body></html>
